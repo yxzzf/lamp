@@ -12,7 +12,7 @@
 */
 
 
-//后台
+//后台管理
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,7 +23,31 @@ Route::resource('/admin/user','admin\UserController');
 //地址列表
 Route::resource('/admin/dizhi','admin\DizhiController');
 
-// hello 
+//后台用户登录
+Route::get('admin/login','admin\LoginController@login');
+
+//后台登录验证
+Route::post('/admin/dologin','admin\LoginController@dologin');
+
+//个人中心
+Route::get('/home/grzx','home\GrzxController@index');
+
+//前台注册
+Route::get('/home/zhuce','home\LogController@zhuce');
+
+//注册操作
+Route::post('/home/store','home\LogController@store');
+
+//商品包装
+Route::resource('/admin/baozhuang','admin\BaozhuangController');
+
+//商品口味
+Route::resource('/admin/kow','admin\KowController');
+
+
+
+
+
 
 
 
@@ -61,10 +85,8 @@ Route::resource('/admin/dizhi','admin\DizhiController');
 Route::resource('/admin/lunbo','admin\LunboController');
 // 推荐位
 Route::resource('/admin/tuijian','admin\TuijianController');
-// 后台登录管理
-Route::get('/admin/login','admin\LoginController@login');
-//后台登录验证
-Route::post('/admin/dologin','admin\LoginController@dologin');
+
+
 
 
 

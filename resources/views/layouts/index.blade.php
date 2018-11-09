@@ -121,17 +121,17 @@
                         </ul>
                     </li>
                      <li class="active">
-                        <a href="#"><i class="icon-list"></i>商品管理</a>
+                        <a href="#"><i class="icon-list"></i>品味管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">商品列表</a></li>
-                            <li><a href="form_elements.html">商品添加</a></li>
+                            <li><a href="/admin/kow">品味列表</a></li>
+                            <li><a href="/admin/kow/create">品味添加</a></li>
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="#"><i class="icon-list"></i>评论管理</a>
+                        <a href="#"><i class="icon-list"></i>包装管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">评论列表</a></li>
-                            <li><a href="form_elements.html">评论添加</a></li>
+                            <li><a href="/admin/baozhuang">包装列表</a></li>
+                            <li><a href="/admin/baozhuang/create">包装添加</a></li>
                         </ul>
                     </li>
 

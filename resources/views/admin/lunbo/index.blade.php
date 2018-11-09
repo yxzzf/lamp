@@ -1,4 +1,4 @@
-@extends('layouts.index') @section('title') 轮播浏览 @endsection @section('title', 轮播浏览') 
+@extends('layouts.index') @section('title') 轮播图浏览 @endsection @section('title','轮播图浏览') 
 @section('content')
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">

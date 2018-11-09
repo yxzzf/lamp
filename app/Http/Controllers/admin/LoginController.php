@@ -6,41 +6,39 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Crypt;
 use App\Model\Users;
+use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
-    // 登录页面显示
-    public function login()
-    {
+   public function login()
+   {
         return view('admin.login');
-    }
-    public function dologin(Request $request)
-    {
-        // echo 'aaaa';
-        if($request -> hasFile('pic')){
-            $profile = $request -> file('pic');
+   }
 
-            $ext = $profile ->getClientOriginalExtension();
+   public function dologin(Request $request)
+   {
+    //获取用户的数据
+        $users = Users::where('uname', $request->uname)->first();
 
-            $file_name = str_random(20).time().'.'.$ext;
-
-            $dir_name = './uploads/'.date('Ymd',time());
-           
-            $res = $profile -> move($dir_name,$file_name);
-            $profile_path = ltrim($dir_name.'/'.$file_name,'.');
-
-            }
-       $res = Input::except('_token');
-        $user = Users::where('uname',$res['uname'])->first();
-        //验证密码
-        if(Crypt::decrypt($user['pwd']) != trim($res['pwd']))
-        {
-            return back()->withErrors('密码错误') -> withInput();
+        if(!$users){
+            return back()->with('error','登陆失败!');
         }
-        session(['users'=>$users]);
-        return redirect('/admin/user');
-    }
+        if($users['qx']==0){
+             return back()->with('error','权限不足');
+        }
+        if($users['qx']==1){
+             return back()->with('error','权限不足');
+        }
+        //校验密码
+        if(Hash::check($request->pwd, $users->pwd)){
+            //写入session
+            session(['adminUser'=>$users]);
+            return redirect('/admin/user')->with('success','登陆成功');
+        }else{
+            return back()->with('error','登陆失败!');
+        }
+
+   }
+   
+
 }
