@@ -180,6 +180,19 @@
                             <li><a href="/admin/setting">网站配置</a></li>
                         </ul>
                     </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-list"></i>订单管理</a>
+                        <ul>
+                            <li><a href="/admin/order">订单列表</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-list"></i>支付管理</a>
+                        <ul>
+                            <li><a href="/admin/zhifu">合作列表</a></li>
+                            <li><a href="/admin/zhifu/create">支付管理</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

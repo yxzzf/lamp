@@ -61,11 +61,12 @@ Route::resource('/admin/dizhi','admin\DizhiController');
 Route::resource('/admin/lunbo','admin\LunboController');
 // 推荐位
 Route::resource('/admin/tuijian','admin\TuijianController');
-// 后台登录管理
-Route::get('/admin/login','admin\LoginController@login');
-//后台登录验证
-Route::post('/admin/dologin','admin\LoginController@dologin');
-
+// 订单
+Route::resource('/admin/order','admin\OrderController');
+// 支付
+Route::resource('/admin/zhifu','admin\ZhifuController');
+// 头条
+Route::resource('/admin/toutiao','admin\ToutiaoController');
 
 
 

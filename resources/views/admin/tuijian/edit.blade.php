@@ -1,5 +1,4 @@
-@extends('layouts.index')
-
+@extends('layouts.index') @section('title') 推荐位修改 @endsection @section('title','推荐位修改') 
 @section('content')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
