@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Wzkgs;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -125,9 +126,20 @@ Route::resource('/admin/cates','admin\CatesController');
 // 商品管理
 Route::resource('/admin/shops','admin\ShopsController');
 
-//网站设置
+// 网站设置
 Route::get('/admin/setting', 'admin\AdminController@setting');
 Route::post('/admin/setting', 'admin\AdminController@update');
 
-// 
-Route::get('/','home\HomeController@index');
+//网站开关
+Route::resource('/admin/wzkgs','admin\WzkgsController');
+
+// 标签管理
+Route::resource('/admin/tag','admin\TagController');
+
+// 前台首页
+$wzkgs = Wzkgs::find(1);
+if($wzkgs['kg'] == 1){
+	Route::get('/','home\HomeController@index');
+}else{
+	Route::get('/','home\HomeController@modify');
+}
