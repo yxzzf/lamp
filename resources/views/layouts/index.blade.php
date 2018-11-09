@@ -193,6 +193,13 @@
                             <li><a href="/admin/zhifu/create">支付管理</a></li>
                         </ul>
                     </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-list"></i>头条管理</a>
+                        <ul>
+                            <li><a href="/admin/toutiao">头条列表</a></li>
+                            <li><a href="/admin/toutiao/create">头条添加</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

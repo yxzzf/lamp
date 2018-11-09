@@ -65,7 +65,7 @@ Route::resource('/admin/tuijian','admin\TuijianController');
 Route::resource('/admin/order','admin\OrderController');
 // 支付
 Route::resource('/admin/zhifu','admin\ZhifuController');
-// 头条
+// 头条  
 Route::resource('/admin/toutiao','admin\ToutiaoController');
 
 
