@@ -1,26 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>首页</title>
-
-		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
-
-		<link href="/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
-
-		<link href="/home/css/hmstyle.css" rel="stylesheet" type="text/css"/>
-		<link href="/home/css/skin.css" rel="stylesheet" type="text/css" />
-		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-
-	</head>
-
-	<body>
-		<div class="hmtop">
 			<!--顶部导航条 -->
 			@include('layouts.home.top')
 			</div>
@@ -67,17 +45,19 @@
 															<div class="menu-srot">
 																<div class="sort-side">
 																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">蛋糕</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">点心</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
+																		@foreach($tag as $vv) @if($vv->cates_id == $v->id)
+																		<dd>
+																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
+																		</dd>
+																		@endif
+																		@endforeach
 																	</dl>
 																</div>
 																<div class="brand-side">
-																	<dl class="dl-sort"><dt><span>实力商家</span></dt>
-																		<dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >呵官方旗舰店</span></a></dd>
+																	<dl ><dt><span>零食</span></dt>
+																		<dd><a rel="nofollow" title="零食" target="_blank" href="#" rel=""><span  class="red" >零食，通常是指一日三餐时间点之外的时间里所食用的食品。一般情况下，人的生活中除了一日三餐被称为正餐食物外，其余的一律被称为零食。
+零食跟食用的时间点有关跟种类无关，比如一般南方人把面食当做零食，但其却是北方人的主食。零食可分为三类，原产品零食、初加工零食和深加工零食。很多一般儿童比较喜欢吃零食，但吃过多深加工零食易造成偏食和肥胖现象。但对于老年人来说适当吃些零食对身体健康有益处，但是多食也是无益的，在选购零食时请注意选择健康零食。一般情况下原产品零食和初加工零食是健康零食。[Snack;Between-meal nibbles] 一日三餐饭食以外的零星的食品。零食，也称零嘴、零嘴儿、小零嘴。</span></a></dd>
 																	</dl>
 																</div>
 															</div>

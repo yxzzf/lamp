@@ -120,11 +120,18 @@
                             <li><a href="/admin/cates/create">分类添加</a></li>
                         </ul>
                     </li>
-                     <li class="active">
+                    <li class="active">
                         <a href="#"><i class="icon-list"></i>商品管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">商品列表</a></li>
-                            <li><a href="form_elements.html">商品添加</a></li>
+                            <li><a href="/admin/shops">商品列表</a></li>
+                            <li><a href="/admin/shops/create">商品添加</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-list"></i>标签管理</a>
+                        <ul>
+                            <li><a href="/admin/tag">标签列表</a></li>
+                            <li><a href="/admin/tag/create">标签添加</a></li>
                         </ul>
                     </li>
                     <li class="active">
@@ -178,6 +185,7 @@
                         <a href="#"><i class="icon-list"></i>网站配置</a>
                         <ul>
                             <li><a href="/admin/setting">网站配置</a></li>
+                            <li><a href="/admin/wzkgs/create">网站开关</a></li>
                         </ul>
                     </li>
                 </ul>
