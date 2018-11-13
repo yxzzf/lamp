@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Cates;
 use App\Model\Links;
 use App\Model\Tag;
+use App\Model\Tuijian;
 use App\Model\Setting;
 use App\Model\Guanggao;
 use App\Model\Shops;
@@ -30,9 +31,18 @@ class HomeController extends Controller
         $lunbotus = Lunbotus::all();
         $links = Links::all();
         $shops = Shops::all();
-        $tag = Tag::all();
+
+        $a = 1;
+        $cid = Cates::lists('id');
+
+        $tuijian = Tuijian::all();
+        $tags = Tag::all();
         $setting = Setting::first();
-        return view('home',['cates'=>$cates,'tag'=>$tag,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting]);
+
+        // dd($cates[1]->shops()->take(8)->get());
+        // dd($cates[1]->tags()->take(6)->get());
+
+        return view('home',['cates'=>$cates,'tuijian'=>$tuijian,'tags'=>$tags,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting,'a'=>$a,'cid'=>$cid]);
     }
 
     /**

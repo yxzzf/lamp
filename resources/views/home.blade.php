@@ -46,7 +46,7 @@
 																<div class="sort-side">
 																	<dl class="dl-sort">
 																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
-																		@foreach($tag as $vv) @if($vv->cates_id == $v->id)
+																		@foreach($tags as $vv) @if($vv->cates_id == $v->id)
 																		<dd>
 																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
 																		</dd>
@@ -163,96 +163,32 @@
 
 					<div class="am-g am-g-fixed recommendation">
 						<div class="clock am-u-sm-3" ">
-							<img src="/home/images/2016.png "></img>
-							<p>今日<br>推荐</p>
+							<img src="/home/2018-3.png"></img>
+							<p>赵丽颖<br>结 婚 啦</p>
 						</div>
-
+						@foreach($tuijian as $v)
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
-								<h3>真的有鱼</h3>
-								<h4>开年福利篇</h4>
+								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
+								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
 							</div>
 							<div class="recommendationMain one">
-								<a href="introduction.html"><img src="/home/images/tj.png "></img></a>
+								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
 						</div>						
-						
+						@endforeach
 					</div>
 					<div class="clear "></div>
-					<!--热门活动 -->
-
-					<div class="am-container activity ">
-						<div class="shopTitle ">
-							<h4>活动</h4>
-							<h3>每期活动 优惠享不停 </h3>
-							<span class="more ">
-                              <a href="# ">全部活动<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
-                        </span>
-						</div>
-					  <div class="am-g am-g-fixed ">
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale one "></div>	
-								<h4>秒杀</h4>							
-							<div class="activityMain ">
-								<img src="/home/images/activity1.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>														
-						</div>
-						
-						<div class="am-u-sm-3 ">
-						  <div class="icon-sale two "></div>	
-							<h4>特惠</h4>
-							<div class="activityMain ">
-								<img src="/home/images/activity2.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>								
-							</div>							
-						</div>						
-						
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale three "></div>
-							<h4>团购</h4>
-							<div class="activityMain ">
-								<img src="/home/images/activity3.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>							
-						</div>						
-
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
-							<h4>超值</h4>
-							<div class="activityMain ">
-								<img src="/home/images/activity.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>													
-						</div>
-
-					  </div>
-                   </div>
-					<div class="clear "></div>
-
-
-  
-                    <div id="f10">
-					<!--坚果-->
+					@foreach($cid as $k => $v)
+                    <div id="f{{ $a++ }}">
 					<div class="am-container ">
 						<div class="shopTitle ">
-							<h4>坚果</h4>
-							<h3>酥酥脆脆，回味无穷</h3>
+							<h4>{{$cates[$k] -> cname}}</h4>
+							<h3>{{$cates[$k] -> intro}}</h3>
 							<div class="today-brands ">
-								<a href="# ">腰果</a>
-								<a href="# ">松子</a>
-								<a href="# ">夏威夷果 </a>
-								<a href="# ">碧根果</a>
-								<a href="# ">开心果</a>
-								<a href="# ">核桃仁</a>
+								@foreach($cates[$k]->tags()->get() as $vv)
+                            	<a href="/tags/{{$vv->id}}">{{$vv->tname}}</a>
+                            	@endforeach
 							</div>
 							<span class="more ">
                     <a href="# ">更多美味<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
@@ -262,40 +198,39 @@
 					<div class="am-g am-g-fixed floodThree ">
 						<div class="am-u-sm-4 text-four list">
 							<div class="word">
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								@foreach($tags[$k]->take(6)->get() as $kk => $vv)
+								<a class="outer" href="#"><span class="inner"><b class="text">{{$vv->tname}}</b></span></a>
+								@endforeach
 							</div>
 							<a href="# ">
-								<img src="/home/images/act1.png " />
+								<img src="{{$cates[$k] -> cimage}}" />
 								<div class="outer-con ">
 									<div class="title ">
-										雪之恋和风大福
+										{{$cates[$k] -> intro}}
 									</div>									
 								</div>
 							</a>
 							<div class="triangle-topright"></div>	
 						</div>
+						@foreach($shops[$k]->take(8)->get() as $vv)
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
-								<img src="/home/images/6.jpg" />
+								<img src="{{$vv->simage}}" />
 								<div class="outer-con ">
 									<div class="title ">
-										雪之恋和风大福
-									</div>								
+										<?php echo Mb_substr($vv['sname'],0,10,'utf-8');?>
+									</div>
 									<div class="sub-title ">
-										¥13.8
+										¥{{$vv -> money}}
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
 						</div>
-
+						@endforeach
 					</div>
 
 					<div class="clear "></div>
 					</div>
-<center>@include('layouts.home.footer')</center>
+					@endforeach
+<center> @include('layouts.home.footer')</center>

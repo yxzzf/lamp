@@ -122,10 +122,10 @@
                     </li>
 
                      <li class="active">
-                        <a href="#"><i class="icon-list"></i>品味管理</a>
+                        <a href="#"><i class="icon-list"></i>口味管理</a>
                         <ul>
-                            <li><a href="/admin/kow">品味列表</a></li>
-                            <li><a href="/admin/kow/create">品味添加</a></li>
+                            <li><a href="/admin/kow">口味列表</a></li>
+                            <li><a href="/admin/kow/create">口味添加</a></li>
                         </ul>
                     <li class="active">
                         <a href="#"><i class="icon-list"></i>商品管理</a>

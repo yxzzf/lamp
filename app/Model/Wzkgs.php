@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wzkgs extends Model
 {
-    //
+    public $table = 'wzkgs';
 }

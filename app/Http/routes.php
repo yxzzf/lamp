@@ -143,3 +143,6 @@ if($wzkgs['kg'] == 1){
 }else{
 	Route::get('/','home\HomeController@modify');
 }
+
+//购物车管理
+Route::resource('/home/shopcar','home\ShopCarController');

@@ -13,16 +13,15 @@ class WzkgsController extends Controller
 {
     public function create()
     {
-        
         return view('admin.index');
     }
     
     public function store(Request $request)
     {
         $wzkgs = Wzkgs::find(1);
-        $wzkgs -> kg = $request->kg;
+        $wzkgs->kg = $request->kg;
         if($wzkgs -> save()){
-            return redirect('/admin/wzkgs/create')->with('success', '修改成功');
+            return redirect('/admin/wzkgs/create')->with('success', '更改成功 ! ! !');
         }else{
             return back()->with('error','修改失败');
         }
