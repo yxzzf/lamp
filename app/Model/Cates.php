@@ -16,4 +16,5 @@ class Cates extends Model
  	{
  		return $this->hasMany('App\Model\Tag','id','cates_id');
  	}
+
 }
