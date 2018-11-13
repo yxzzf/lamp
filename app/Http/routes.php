@@ -39,6 +39,12 @@ Route::get('/home/zhuce','home\LogController@zhuce');
 //注册操作
 Route::post('/home/store','home\LogController@store');
 
+//前台登录
+Route::get('/home/denglu','home\LogController@denglu');
+
+//登录操作
+Route::post('/home/dlg','home\LogController@dlg');
+
 //商品包装
 Route::resource('/admin/baozhuang','admin\BaozhuangController');
 

@@ -42,12 +42,56 @@ class LogController extends Controller
             $users->pwd = Hash::make($request->pwd);
   
              if($users ->save()){
-                    return redirect('/')->with('success','添加成功');
+                    echo  "<script>alert('注册成功');location.href='/home/denglu'</script>";
                 }else{
-                    return back()->with('error','添加失败');
+                    return back()->with('error','注册失败');
                 }
-           
+   }
+
+   public function denglu()
+   {
+     return view('home.denglu.denglu');
+   }
+
+
+   public function dlg(Request $request)
+   {
+
+        if($request->pwd == null)
+            {
+                 return back()->with('error','登陆失败!');
+              
+            }
+        //获取用户的数据
+       $users = Users::where('uname', $request->uname)->first();
+      
+
+        if(!$users){
+            // return back()->with('error','登陆失败!');
+            echo  "<script>alert('登陆失败');location.href='/home/denglu'</script>";
+        }
+        
+
+        //校验密码
+        if(Hash::check($request->pwd, $users->pwd)){
+            //写入session
+            session(['Users' => $users]);
+            // return redirect('/')->with('success','登陆成功');
+            echo  "<script>alert('登陆成功');location.href='/'</script>";
+        }else{
+            return back()->with('error','登陆失败!');
+  
+
+
+      }          
 
 
    }
+
+
+
+
+
+
+
 }

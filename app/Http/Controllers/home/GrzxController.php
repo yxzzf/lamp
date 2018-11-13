@@ -11,6 +11,7 @@ use App\Model\Users;
 
 
 
+
 class GrzxController extends Controller
 {
    public function index(Request $request)
@@ -20,4 +21,6 @@ class GrzxController extends Controller
 	  return view('home.grzx.index',['title'=>'个人中心']);
 
    }
+
+
 }

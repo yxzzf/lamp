@@ -27,8 +27,12 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									<a href="#" target="_top" class="h">亲，请登录</a>
-									<a href="#" target="_top">免费注册</a>
+									 @if(!empty(session("users")))
+					                <a href="/" target="_top" class="h">你好: session('users')</a>
+					                <a href="/home/denglu">&nbsp;&nbsp;&nbsp;退出</a> @else
+					                <a href="/home/denglu" target="_top" class="h">请登录</a>
+					                <a href="/home/zhuce" target="_top">免费注册</a>
+					                @endif
 								</div>
 							</div>
 						</ul>

@@ -48,7 +48,7 @@
 
 						<div class="am-tabs" id="doc-my-tabs">
 							<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-								<li><a href="">用户名注册</a></li>
+								<h3 class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp用户注册</h3>
 							</ul>
 
 								<div class="am-tab-panel">
