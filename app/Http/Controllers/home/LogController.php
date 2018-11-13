@@ -65,7 +65,6 @@ class LogController extends Controller
         //获取用户的数据
        $users = Users::where('uname', $request->uname)->first();
       
-
         if(!$users){
             // return back()->with('error','登陆失败!');
             echo  "<script>alert('登陆失败');location.href='/home/denglu'</script>";
@@ -76,6 +75,7 @@ class LogController extends Controller
         if(Hash::check($request->pwd, $users->pwd)){
             //写入session
             session(['Users' => $users]);
+            session(['uname'=>$users['uname']]);
             // return redirect('/')->with('success','登陆成功');
             echo  "<script>alert('登陆成功');location.href='/'</script>";
         }else{

@@ -22,7 +22,7 @@
 										<a href="information.html">
 											<img src="/home/pone/images/getAvatar.do.jpg">
 										</a>
-										<em class="s-name">{{session('Users.uname')}}<span class="vip1"></span></em>
+										<em class="s-name">{{session('uname')}}<span class="vip1"></span></em>
 										<div class="s-prestige am-btn am-round">
 											会员福利</div>
 									</div>

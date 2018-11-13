@@ -6,17 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Cates;
-use App\Model\Links;
-use App\Model\Tag;
-use App\Model\Tuijian;
-use App\Model\Setting;
-use App\Model\Guanggao;
-use App\Model\Shops;
-use App\Model\Lunbotus;
 
-
-class HomeController extends Controller
+class SpxqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,25 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        $cates = Cates::all();//分类
-      
-        $guanggao = Guanggao::all();
-        $lunbotus = Lunbotus::all();
-        $links = Links::all();
-        $shops = Shops::all();//sp
-
-        $a = 1;
-        $cid = Cates::lists('id');
-
-        $tuijian = Tuijian::all();
-        $tags = Tag::all();//标签
-        $setting = Setting::first();
-
-        // dd($cates[1]->shops()->take(8)->get());
-        // dd($cates[1]->tags()->take(6)->get());
-
-        return view('home',['cates'=>$cates,'tuijian'=>$tuijian,'tags'=>$tags,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting,'a'=>$a,'cid'=>$cid]);
+        return view('home.spxq.index');
     }
 
     /**
@@ -110,11 +83,5 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    public function modify()
-    {
-        return view('home.modify.modify');
     }
 }

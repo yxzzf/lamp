@@ -51,6 +51,8 @@ Route::resource('/admin/baozhuang','admin\BaozhuangController');
 //商品口味
 Route::resource('/admin/kow','admin\KowController');
 
+//前台商品详情
+Route::resource('/home/spxq','home\SpxqController');
 
 
 
