@@ -100,8 +100,12 @@ Route::resource('/home/spxq','home\SpxqController');
 Route::resource('/admin/lunbo','admin\LunboController');
 // 推荐位
 Route::resource('/admin/tuijian','admin\TuijianController');
-
-
+// 订单
+Route::resource('/admin/order','admin\OrderController');
+// 支付
+Route::resource('/admin/zhifu','admin\ZhifuController');
+// 头条  
+Route::resource('/admin/toutiao','admin\ToutiaoController');
 
 
 

@@ -166,17 +166,29 @@
 							<img src="/home/2018-3.png"></img>
 							<p>赵丽颖<br>结 婚 啦</p>
 						</div>
+<<<<<<< HEAD
 						@foreach($tuijian as $v)
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
+=======
+	
+						<div class="am-u-sm-4 am-u-lg-3 ">
+							<div class="info ">
+								<h3>{{$v->sname}}</h3>
+								<h4>{{$v->miaoshu}}</h4>
+>>>>>>> origin/writing
 							</div>
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
 						</div>						
+<<<<<<< HEAD
 						@endforeach
+=======
+			
+>>>>>>> origin/writing
 					</div>
 					<div class="clear "></div>
 

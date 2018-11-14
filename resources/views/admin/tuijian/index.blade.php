@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.index') @section('title') 推荐位浏览 @endsection @section('title','推荐位浏览') 
 @section('content')
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">

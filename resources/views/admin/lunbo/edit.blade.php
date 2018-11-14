@@ -1,4 +1,4 @@
-@extends('layouts.index') @section('title') 轮播修改 @endsection @section('title','轮播添加') 轮播修改
+@extends('layouts.index') @section('title') 轮播修改 @endsection @section('title','轮播添加') 
 @section('content')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
@@ -18,7 +18,7 @@
      			<div class="mws-form-row">
      				<label class="mws-form-label">图片上传</label>
      				<div class="mws-form-item">
-     					<input type="file" class="small" name="pic" value="{{$lunbo['pic']}}">
+     					<input type="file" name="pic" value="{{$lunbo['pic']}}">
      				</div>
      			</div>
                    <div class="mws-form-row">

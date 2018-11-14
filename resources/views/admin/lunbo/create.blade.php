@@ -1,4 +1,4 @@
-@extends('layouts.index') @section('title') 轮播添加 @endsection @section('title','轮播添加') 轮播
+@extends('layouts.index') @section('title') 轮播添加 @endsection @section('title','轮播添加')
 
 
 @section('content')

@@ -56,8 +56,8 @@
 
 	<div class="nav white">
 		<div class="logo"><img src="/home/images/logo.png" /></div>
-		<div class="logoBig">
-			<li><img src="{{ $setting['logo'] }}" style="margin-top: -50px;" /></li>
+		<div class="logoBig" width="100%">
+			<li><img src="{{ $setting['logo'] }}"/></li>
 		</div>
 
 		<div class="search-bar pr">
