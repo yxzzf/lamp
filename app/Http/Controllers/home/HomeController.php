@@ -8,7 +8,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\Cates;
 use App\Model\Links;
+use App\Model\Tag;
+use App\Model\Setting;
 use App\Model\Guanggao;
+use App\Model\Shops;
 use App\Model\Lunbotus;
 
 
@@ -26,7 +29,10 @@ class HomeController extends Controller
         $guanggao = Guanggao::all();
         $lunbotus = Lunbotus::all();
         $links = Links::all();
-        return view('home',['cates'=>$cates,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus]);
+        $shops = Shops::all();
+        $tag = Tag::all();
+        $setting = Setting::first();
+        return view('home',['cates'=>$cates,'tag'=>$tag,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting]);
     }
 
     /**
@@ -93,5 +99,11 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function modify()
+    {
+        return view('home.modify.modify');
     }
 }

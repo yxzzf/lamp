@@ -7,11 +7,12 @@
           </div>
           <div class="mws-panel-body no-padding">
                <form class="mws-form" action="/admin/toutiao" method="post">
+                    {{ csrf_field() }}
                     <div class="mws-form-inline">
                          <div class="mws-form-row">
                               <label class="mws-form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">头条标题</font></font></label>
                               <div class="mws-form-item">
-                                   <input type="text" class="small">
+                                   <input type="text" class="small" name="title">
                               </div>
                          </div>
                          <div class="mws-form-row">
@@ -37,6 +38,8 @@
 <script type="text/javascript" src="/admin/utf8-php/ueditor.all.js"></script>
  <!-- 实例化编辑器 -->
 <script type="text/javascript">
-   var ue = UE.getEditor('container');
+   var ue = UE.getEditor('container',{toolbars:[
+          ['fullscreen','source','undo','redo','bold']
+     ]});
 </script>
 @endsection

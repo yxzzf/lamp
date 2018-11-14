@@ -5,7 +5,7 @@
 
     </div>
     <div class="dataTables_wrapper" id="DataTables_Table_1" role="grid">
-    <form action="/admin/lunbo" method="get">
+    <form action="/admin/toutiao" method="get">
     <div id="DataTables_Table_1_length" class="dataTables_filter">
         <label style="float:left">显示 
             <select size="1" name="showCount" aria-controls="DataTables_Table_1">
@@ -24,36 +24,49 @@
     <div id="mws-panel-body no-padding" class="dataTables_wrapper" style="text-align:center">
     <div class="dataTables_wrapper" id="DataTables_Table_1" role="grid">
         <table class="mws-table">
+
             <thead>
-                <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">ID</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">订单号</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">用户名</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">数量</th>
-                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">价格</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">订单时间</th><th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作</th></tr>
+                <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">订单ID</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">用户</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">商品名</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">商品口味</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">商品包装</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">商品数量</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">物流方式</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">支付方式</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">订单编号</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">收货地址</th>
+                <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">订单状态</th>
+                <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作</th></tr>
             </thead>
+            @foreach($os as $v)
             <tbody role="alert" aria-live="polite" aria-relevant="all">
-            @foreach ($res as $k => $v)
                 <tr class="odd">
-                        <td class="table-id">{{ $v->id}}</td>
-                        <td class="table-did">{{ $v->oid}}</td>
-                        <td class="table-uid">{{ $v->uid}}</td>
-                        <td class="table-number">{{ $v->number}}</td>
-                        <td class="table-price">{{ $v->price}}</td>
-                        <td class="table-created_at">{{ $v->created_at}}</td>
-                        <td class=" ">
-                            <div class="item-col item-col-stats no-overflow">
-                        <div class="no-overflow"><a href="">
-                                <button type="button" class="btn btn-info btn-success">查看详情</button></a>
-                        </div>
-                    </div>
-                        </td>
-                    </tr>
-            @endforeach
+                    <td>{{$v->order_id}}</td>
+                    <td>{{$v->order->user->uname}}</td>
+                    <td>{{$v->shop->sname}}</td>
+                    <td>{{$v->flavor->fname}}</td>
+                    <td>{{$v->pack->pname}}</td>
+                    <td>{{$v->shuliang}}</td>
+                    <td>{{$v->order->wuliu->name}}</td>
+                    <td>{{$v->order->zhifu->name}}</td>
+                    <td>{{$v->order_bh}}</td>
+                    <td width="210px">{{$v->order->uaddress->address.$v->order->uaddress->xadress}}</td>
+                    <td>{{$v->order->zhuangtai->zhuangtai}}</td>
+                    <td width="140px">
+                        <a href="/admin/order/{{$v->id}}/edit" style="float:left " class="waves-effect waves-light btn update">编辑</a>
+                        <form action="/admin/order/{{$v->order_id}}" method="post">
+                            {{method_field('DELETE')}} {{csrf_field()}}
+                            <button class="btn btn-danger dropdown-toggle delete" style="float:right">删除</button>
+                        </form>
+                    </td>       
+                </tr>
             </tbody>
+            @endforeach
         </table>
+
     </div>
     <div class="dataTables_info" id="DataTables_Table_1_info">{{ date('Y年m月d日 H:i',time()) }}</div>
     <div id="page_page">
-        
+
     </div>
 </div>
 </div> 
-
 @endsection

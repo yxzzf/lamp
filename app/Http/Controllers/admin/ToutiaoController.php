@@ -17,6 +17,9 @@ class ToutiaoController extends Controller
     public function index()
     { 
         //
+        $toutiao = Toutiao::all();
+
+        return view('admin.toutiao.index',['toutiao'=>$toutiao]);
     }
 
     /**
@@ -41,7 +44,11 @@ class ToutiaoController extends Controller
         $toutiao = new Toutiao;
         $toutiao->title = $request->input('title','');
         $toutiao->content = $request->input('content','');
-        dump($toutiao->save());
+        if($toutiao->save()){
+            return redirect('/admin/toutiao')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -53,6 +60,8 @@ class ToutiaoController extends Controller
     public function show($id)
     {
         //
+        $toutiao = Toutiao::find($id);
+        return view('admin.toutiao.show',['title'=>'头条添加','toutiao'=>$toutiao]);
     }
 
     /**
@@ -87,5 +96,11 @@ class ToutiaoController extends Controller
     public function destroy($id)
     {
         //
+        $toutiao = Toutiao::findOrFail($id);
+        if($toutiao->delete()){
+             return redirect('/admin/toutiao')->with('success','删除成功');
+        }else{
+             return back()->with('error','删除失败');
+        }
     }
 }

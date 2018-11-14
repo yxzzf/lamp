@@ -1,4 +1,28 @@
-<!--顶部导航条 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<link rel="icon" href="/home/images/meat.png" type="image/x-icon"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{ $setting['title'] }}</title>
+
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+
+		<link href="/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
+
+		<link href="/home/css/hmstyle.css" rel="stylesheet" type="text/css"/>
+		<link href="/home/css/skin.css" rel="stylesheet" type="text/css" />
+		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+
+	</head>
+
+	<body>
+		<div class="hmtop">
+			<!--顶部导航条 -->
 <div class="am-container header">
 	<ul class="message-l">
 		<div class="topMessage">
@@ -13,7 +37,7 @@
 			<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
 		</div>
 		<div class="topMessage my-shangcheng">
-			<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+			<div class="menu-hd MyShangcheng"><a href="/home/grzx" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 		</div>
 		<div class="topMessage mini-cart">
 			<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -27,8 +51,8 @@
 
 	<div class="nav white">
 		<div class="logo"><img src="/home/images/logo.png" /></div>
-		<div class="logoBig">
-			<li><img src="/home/images/iaugfa105210350.png" style="margin-top: -50px;" /></li>
+		<div class="logoBig" width="100%">
+			<li><img src="{{ $setting['logo'] }}"/></li>
 		</div>
 
 		<div class="search-bar pr">

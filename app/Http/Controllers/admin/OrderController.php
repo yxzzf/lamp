@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
-use DB;
 use App\Http\Requests;
 use App\Model\Order;
 use App\Model\Users;
-
-use App\Model\Orderdetail;
+use App\Model\Shops;
+use App\Model\Order_shop;
+use App\Model\Zhifus;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
@@ -19,43 +19,32 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request ,$request)
+    public function index()
     {
-        //查询订单表 信息
-        $res = Order::leftjoin('order_detail','order.id','=','order_detail.id');
-        //订单页的分页和搜索
-        $res = $res->where('oid','like','%'.Input::get('search').'%')->paginate(5);
-        $user = Users::get();
-        $search = Input::get('search');
-        return view('admin.order.index',compact('res','search','user'));
-    }
-    /**
-     *订单详情
-     */
-    public function detail($id)
-    {
-        $input = Order::find($id);
-        //查询出订单表里商品ID
-        $gid = OrderDetail::where('id',$id)->value('gid');
-        //根据此iD查询出所购买商品的具体信息
-        $gid = \GuzzleHttp\json_decode($gid);
-        foreach($gid as $k=>$v){
-            $goods[] = Goods::where('id',$v)->get()[0];
-        }
-        //订单号
-        $num = OrderDetail::where('id',$id)->value('oid');
-        //购买商品的总价
-       $price = $good[0]['num'] * $good[0]['price'];
-        return view('admin.order.detail',compact('ad','goods','num','price','id'));
+        //读取数据库 获取订单数据
+        $os = Order_shop::orderBy('id','desc')
+                ->where('order_bh','like', '%'.request()->keywords.'%')
+                ->paginate(5);
+        return view('admin.order.index', compact('os'));
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $uid = \Session::get('adminUser')['id'];
+        // $user = Users::findOrFail($uid); 
+
+         //读取支付信息
+        $zhifu = zhifus::all();
+      
+        // $wuliu = wuliu::all();
+
+        //读取物流信息
+        // $wuliu =wuliu::all();
+          return view('admin.order.create',['zhifu'=>$zhifu]);
     }
 
     /**
@@ -66,7 +55,22 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new order;
+        // dd($request-> shop_id);
+        $order -> wuliu_id = $request-> wuliu_id;
+        $order -> shop_id = $request-> shop_id;
+        $order -> uaddress_id = $request-> uaddress_id;
+        $order -> order_bh = $request-> order_bh;
+        $order -> user_id = $request-> user_id;
+        $order -> shopcar_id = $request-> shopcar_id;
+        $order -> zhifu_id = $request-> zhifu_id;
+       
+
+        if($order -> save()){
+            return redirect('/admin/order')->with('success', '添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**

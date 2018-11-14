@@ -9,11 +9,11 @@ class Cates extends Model
     //
     public function shops()
  	{
-    	return $this->hasMany('App\Shops');
+    	return $this->hasMany('App\Model\Shops','id');
  	} 
 
  	public function tags()
  	{
- 		return $this->hasMany('App\Tag');
+ 		return $this->hasMany('App\Model\Tag','id','cates_id');
  	}
 }
