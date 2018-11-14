@@ -76,19 +76,22 @@ class LogController extends Controller
             //写入session
             session(['Users' => $users]);
             session(['uname'=>$users['uname']]);
+            session(['id'=>$users['id']]);
             // return redirect('/')->with('success','登陆成功');
             echo  "<script>alert('登陆成功');location.href='/'</script>";
         }else{
             return back()->with('error','登陆失败!');
-  
 
+      }  
 
-      }          
+     }
 
-
-   }
-
-
+     //退出
+    public function loginout()
+    {
+        session()->flush();
+        return redirect('/');
+    }
 
 
 

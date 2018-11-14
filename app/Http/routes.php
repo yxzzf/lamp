@@ -33,6 +33,10 @@ Route::post('/admin/dologin','admin\LoginController@dologin');
 //个人中心
 Route::get('/home/grzx','home\GrzxController@index');
 
+//个人信息
+Route::get('/home/grxx/{id}','home\GrzxController@grxx');
+Route::post('/home/xxxg/{id}','home\GrzxController@xxxg');
+
 //前台注册
 Route::get('/home/zhuce','home\LogController@zhuce');
 
@@ -45,6 +49,8 @@ Route::get('/home/denglu','home\LogController@denglu');
 //登录操作
 Route::post('/home/dlg','home\LogController@dlg');
 
+//退出登录
+Route::get('/home/loginout','home\LogController@loginout');
 //商品包装
 Route::resource('/admin/baozhuang','admin\BaozhuangController');
 
