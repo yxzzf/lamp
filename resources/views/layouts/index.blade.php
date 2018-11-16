@@ -190,6 +190,13 @@
                         </ul>
                     </li>
                     <li class="active">
+                        <a href="#"><i class="icon-stats"></i>物流管理</a>
+                        <ul>
+                            <li><a href="/admin/wuliu">物流列表</a></li>
+                            <li><a href="/admin/wuliu/create">物流添加</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
                         <a href="#"><i class="icon-list"></i>网站配置</a>
                         <ul>
                             <li><a href="/admin/setting">网站配置</a></li>

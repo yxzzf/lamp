@@ -1,5 +1,4 @@
-
-			<!--顶部导航条 -->
+<!--顶部导航条 -->
 			@include('layouts.home.top')
 			</div>
 			<div class="banner">
@@ -48,7 +47,7 @@
 																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
 																		@foreach($tags as $vv) @if($vv->cates_id == $v->id)
 																		<dd>
-																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
+																			<a title="{{$vv->sname}}" href="/tags/{{ $vv->id }}">{{$vv ->tname}}<span></span></a>
 																		</dd>
 																		@endif
 																		@endforeach
@@ -166,7 +165,10 @@
 							<img src="/home/2018-3.png"></img>
 							<p>赵丽颖<br>结 婚 啦</p>
 						</div>
+						<?php $a =0; ?>
 						@foreach($tuijian as $v)
+						@if ($a<=2)
+						<?php $a++; ?>
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
@@ -175,19 +177,23 @@
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
-						</div>						
+						</div>
+						@endif
 						@endforeach
 					</div>
 					<div class="clear "></div>
-					@foreach($cid as $k => $v)
+					@foreach($cates as $k => $v)
                     <div id="f{{ $a++ }}">
 					<div class="am-container ">
 						<div class="shopTitle ">
-							<h4>{{$cates[$k] -> cname}}</h4>
-							<h3>{{$cates[$k] -> intro}}</h3>
+							<h4>{{$v -> cname}}</h4>
+							<h3>{{$v -> intro}}</h3>
 							<div class="today-brands ">
-								@foreach($cates[$k]->tags()->get() as $vv)
+								@foreach($tags as $kk => $vv)
+								@if ($v->id == $vv->cates_id)
+									
                             	<a href="/tags/{{$vv->id}}">{{$vv->tname}}</a>
+								@endif
                             	@endforeach
 							</div>
 							<span class="more ">
@@ -198,38 +204,46 @@
 					<div class="am-g am-g-fixed floodThree ">
 						<div class="am-u-sm-4 text-four list">
 							<div class="word">
-								@foreach($tags[$k]->take(6)->get() as $kk => $vv)
-								<a class="outer" href="#"><span class="inner"><b class="text">{{$vv->tname}}</b></span></a>
-								@endforeach
+								
+								<?php $a =0; ?>
+								@foreach($tags as $kk1 => $vv1)
+								@if ($v->id == $vv1->cates_id && $a<=5)
+								<?php $a++; ?>
+                            		<a class="outer" href="#"><span class="inner"><b class="text">{{$vv1->tname}}</b></span></a>
+								@endif
+                            	@endforeach
 							</div>
-							<a href="# ">
+							<a href="/cates/{{ $v->id }} ">
 								<img src="{{$cates[$k] -> cimage}}" />
 								<div class="outer-con ">
 									<div class="title ">
-										{{$cates[$k] -> intro}}
+										{{$v -> intro}}
 									</div>									
 								</div>
 							</a>
 							<div class="triangle-topright"></div>	
 						</div>
-						@foreach($shops[$k]->take(8)->get() as $vv)
+						<?php $b=0; ?>
+						@foreach($shops as $kk2 => $vv2)
+						@if ($v->id == $vv2->cates_id && $b<=7)
+						<?php $b++; ?>		
 						<div class="am-u-sm-4 text-four">
-							<a href="# ">
-								<img src="{{$vv->simage}}" />
+							<a href="/{{$vv2->id}}.html">
+								<img src="{{$vv2->simage}}" />
 								<div class="outer-con ">
 									<div class="title ">
-										<?php echo Mb_substr($vv['sname'],0,10,'utf-8');?>
+										<?php echo Mb_substr($vv2['sname'],0,10,'utf-8');?>
 									</div>
 									<div class="sub-title ">
-										¥{{$vv -> money}}
+										¥{{$vv2 -> money}}
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
 						</div>
+						@endif
 						@endforeach
 					</div>
-
 					<div class="clear "></div>
 					</div>
 					@endforeach

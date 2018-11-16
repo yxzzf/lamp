@@ -3,59 +3,34 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
-
+use App\Model\Shopcars;
+use App\Model\Shops;
+use App\Model\Links;
+use App\Model\Setting;
+use App\Model\Kows;
+use App\Model\Users;
+use App\Model\Baozhuangs;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\Cates;
-use App\Model\Links;
-use App\Model\Tag;
-use App\Model\Tuijian;
-use App\Model\Setting;
-use App\Model\Guanggao;
-use App\Model\Shops;
-use App\Model\Lunbotus;
 
-
-class HomeController extends Controller
+class ShopcarController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id)
     {
-        //
-        $cates = Cates::all();
-        $guanggao = Guanggao::all();
-        $lunbotus = Lunbotus::all();
-        $links = Links::all();
-        $shops = Shops::all();
-
-        $a = 1;
-        $cid = Cates::lists('id');
-
-        $tuijian = Tuijian::all();
-        $tags = Tag::all();
-        $setting = Setting::first();
-
-        // dd($cates[1]->shops()->take(8)->get());
-        // dd($cates[1]->tags()->take(6)->get());
-
-        return view('home',['cates'=>$cates,'tuijian'=>$tuijian,'tags'=>$tags,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting,'a'=>$a,'cid'=>$cid]);
+        echo 'aaaaa';
+        // $shopcar = new Shopcars();
+        // $shopcar->shops_id = $id;
+        // $shopcar->kows_id = $request->kows_id;
+        // $shopcar->baozhuangs_id = $request->baozhuangs_id;
+        // $shopcar->shuliang = $request->shuliang;
+        // dd($shopcar);
+        // $shopcar->save();
     }
-
-    public function cates(Request $request,$id)
-    {
-        $tags = Tag::all();
-        $cates = Cates::all();
-        $shops = Shops::all();
-        
-        $links = Links::all();
-        $setting = Setting::first();
-        return view('home.demo.cates',['cates'=>$cates,'tags'=>$tags,'shops'=>$shops,'links'=>$links,'setting'=>$setting]);
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -97,7 +72,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd(11111);
     }
 
     /**
@@ -121,11 +96,5 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    public function modify()
-    {
-        return view('home.modify.modify');
     }
 }
