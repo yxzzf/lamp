@@ -1,5 +1,4 @@
-
-			<!--顶部导航条 -->
+<!--顶部导航条 -->
 			@include('layouts.home.top')
 			</div>
 			<div class="banner">
@@ -48,7 +47,7 @@
 																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
 																		@foreach($tags as $vv) @if($vv->cates_id == $v->id)
 																		<dd>
-																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
+																			<a title="{{$vv->sname}}" href="/tags/{{ $vv->id }}">{{$vv ->tname}}<span></span></a>
 																		</dd>
 																		@endif
 																		@endforeach
@@ -166,31 +165,32 @@
 							<img src="/home/2018-3.png"></img>
 							<p>赵丽颖<br>结 婚 啦</p>
 						</div>
-<<<<<<< HEAD
+
+						<?php $a =0; ?>
+
 						@foreach($tuijian as $v)
+						@if ($a<=2)
+						<?php $a++; ?>
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
-=======
+
 	
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>{{$v->sname}}</h3>
-								<h4>{{$v->miaoshu}}</h4>
->>>>>>> origin/writing
-							</div>
+						
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
-						</div>						
-<<<<<<< HEAD
+
+						</div>
+						@endif
+
 						@endforeach
-=======
-			
->>>>>>> origin/writing
-					</div>
+
+	
 					<div class="clear "></div>
+
+
 
 
 					@foreach($cates as $k => $v)
@@ -217,9 +217,6 @@
 					<div class="am-g am-g-fixed floodThree ">
 						<div class="am-u-sm-4 text-four list">
 							<div class="word">
-
-								
-
 								<?php $a =0; ?>
 								@foreach($tags as $kk1 => $vv1)
 								@if ($v->id == $vv1->cates_id && $a<=5)
@@ -229,7 +226,7 @@
                             	@endforeach
 
 							</div>
-							<a href="# ">
+							<a href="/cates/{{ $v->id }} ">
 								<img src="{{$cates[$k] -> cimage}}" />
 								<div class="outer-con ">
 									<div class="title ">
@@ -244,7 +241,11 @@
 						@if ($v->id == $vv2->cates_id && $b<=7)
 						<?php $b++; ?>		
 						<div class="am-u-sm-4 text-four">
-							<a href="# ">
+
+					
+
+							<a href="/{{$vv2->id}}.html">
+
 								<img src="{{$vv2->simage}}" />
 								<div class="outer-con ">
 									<div class="title ">
@@ -261,7 +262,6 @@
 						@endforeach
 
 					</div>
-
 					<div class="clear "></div>
 					</div>
 					@endforeach
