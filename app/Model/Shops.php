@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shops extends Model
 {
+    protected $dates = ['deleted_at'];
 	public $table = 'shops';
 
 
@@ -44,4 +45,31 @@ class Shops extends Model
         return $this->belongsToMany('App\Model\Order_shop');
 
     }
+
+    //n商品对n口味
+    public function kows()
+    {
+        return $this->belongsToMany('App\Model\Kows');
+    }
+
+    //n商品对n用户
+    public function users()
+    {
+        return $this->belongsToMany('App\Model\Users');
+    }
+
+     public function baozhuangs()
+    {
+        
+        return $this->belongsToMany('App\Model\baozhuangs');
+
+    }   
+    
+
+    public function shopcars()
+    {
+        return $this->belongsToMany('App\Shop');
+
+    }
+
 }

@@ -151,6 +151,9 @@ Route::resource('/admin/cates','admin\CatesController');
 // 商品管理
 Route::resource('/admin/shops','admin\ShopsController');
 
+// 物流管理
+Route::resource('/admin/wuliu','admin\WuliuController');
+
 // 网站设置
 Route::get('/admin/setting', 'admin\AdminController@setting');
 Route::post('/admin/setting', 'admin\AdminController@update');
@@ -169,5 +172,11 @@ if($wzkgs['kg'] == 1){
 	Route::get('/','home\HomeController@modify');
 }
 
+//前台商品详情
+Route::get('/{id}.html','admin\ShopsController@show');
+
 //购物车管理
-Route::resource('/home/shopcar','home\ShopCarController');
+Route::resource('/home/shopcar/{id}','home\ShopCarController@edit');
+
+//前台分类下商品
+Route::get('/cates/{id}','home\HomeController@cates');
