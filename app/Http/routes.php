@@ -37,6 +37,13 @@ Route::get('/home/grzx','home\GrzxController@index');
 Route::get('/home/grxx/{id}','home\GrzxController@grxx');
 Route::post('/home/xxxg/{id}','home\GrzxController@xxxg');
 
+//修改密码
+Route::get('/home/mmxx/{id}','home\GrzxController@mmxx');
+Route::post('/home/zxxg/{id}','home\GrzxController@zxxg');
+
+//地址管理
+
+
 //前台注册
 Route::get('/home/zhuce','home\LogController@zhuce');
 

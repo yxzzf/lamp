@@ -42,6 +42,6 @@ class Shops extends Model
     public function Order_shop()
     {
         return $this->belongsToMany('App\Model\Order_shop');
->>>>>>> origin/writing
+
     }
 }

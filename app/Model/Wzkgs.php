@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Wzkgs extends Model
 {
-<<<<<<< HEAD
+
     public $table = 'wzkgs';
-=======
-    //
-    protected $table = 'wzkgs';
->>>>>>> origin/writing
+
+  
 }

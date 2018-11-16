@@ -39,7 +39,7 @@ class LogController extends Controller
    			$users = new Users;
             $users->uname = $request->input('uname','');
 
-            $users->pwd = Hash::make($request->pwd);
+            $users->pwd = Hash::make($request->input('pwd'));
   
              if($users ->save()){
                     echo  "<script>alert('注册成功');location.href='/home/denglu'</script>";

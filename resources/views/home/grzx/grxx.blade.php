@@ -21,13 +21,16 @@
 							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人信息</strong> / <small>Personal&nbsp;information</small></div>
 						</div>
 						<hr>
+						<!--个人信息 -->
+						<div class="info-main">
+							<form action="/home/xxxg/{{$user->id}}" method="post" class="am-form am-form-horizontal" enctype="multipart/form-data">
 
-						<!--头像 -->
+							<!--头像 -->
 						<div class="user-infoPic">
 
 							<div class="filePic">
 								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*" name="pic" value="{{ $user->pic }}">
-								<img class="am-circle am-img-thumbnail" src="/home/pone/images/getAvatar.do.jpg" alt="">
+								<img class="am-circle am-img-thumbnail" src="{{ $user->pic}}" alt="">
 							</div>  
 
 							<p class="am-form-help">头像</p>
@@ -50,10 +53,6 @@
 								</div>
 							</div>
 						</div>
-
-						<!--个人信息 -->
-						<div class="info-main">
-							<form action="/home/xxxg/{{$user->id}}" method="post" class="am-form am-form-horizontal">
 						       
 								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 								<input type="hidden" name="id" value="{{session('uname')}}">

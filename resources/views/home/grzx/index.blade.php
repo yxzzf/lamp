@@ -20,7 +20,7 @@
 								<div class="m-userinfo">
 									<div class="m-baseinfo">
 										<a href="information.html">
-											<img src="/home/pone/images/getAvatar.do.jpg">
+											<img src="{{ $user->pic }}">
 										</a>
 										<em class="s-name">{{session('uname')}}<span class="vip1"></span></em>
 										<div class="s-prestige am-btn am-round">
