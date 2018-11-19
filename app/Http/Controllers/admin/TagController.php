@@ -18,6 +18,7 @@ class TagController extends Controller
      */
     public function index(Request $request)
     {
+        // 标签显示,分页搜索
         $showCount = $request->input('showCount',3);
         $search = $request->input('search','');
         $cates = Cates::all();

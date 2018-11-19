@@ -24,8 +24,10 @@ class ShopsController extends Controller
      */
     public function index(Request $request)
     {
+        // 商品显示页面  搜索分页
         $showCount = $request->input('showCount',3);
         $search = $request->input('search','');
+        // 获取分类的ID,显示商品属于的分类
         $cates = Cates::all();
         $shops = Shops::where('sname','like','%'.$search.'%')->paginate($showCount);
         return view('admin.shops.index',['shops'=>$shops,'title'=>'商品浏览','request'=>$request]);
@@ -51,7 +53,7 @@ class ShopsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 添加商品图片和各种数据
         if($request -> hasFile('simage')){
             $profile = $request -> file('simage');
             $ext = $profile ->getClientOriginalExtension();
@@ -133,7 +135,7 @@ class ShopsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // 修改商品图片及各种数据
         if($request -> hasFile('simage')){
             $profile = $request -> file('simage');
             $ext = $profile ->getClientOriginalExtension();
@@ -159,10 +161,10 @@ class ShopsController extends Controller
             $profile_path3 = ltrim($dir_name.'/'.$file_name,'.');
         }
         $shops = Shops::findOrFail($id);
-        $shops -> sname = $request->sname;
-        $shops -> money = $request->money;
-        $shops -> scount = $request->scount;
-        $shops -> cates_id = $request->cates_id;
+        $shops -> sname = $request->sname; // 商品名称
+        $shops -> money = $request->money; // 商品价格
+        $shops -> scount = $request->scount; // 商品库存
+        $shops -> cates_id = $request->cates_id; // 商品分类
         $shops -> simage = $profile_path;
         $shops -> simage2 = $profile_path2;
         $shops -> simage3 = $profile_path3;

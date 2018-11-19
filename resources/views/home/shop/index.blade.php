@@ -33,7 +33,7 @@
 				<div class="topMessage">
 		 <div class="menu-hd">
                     @if(empty(session('Users')))
-                        <a href="{{ url('home/login') }}" target="_top" class="h">亲，请登录</a>
+                        <a href="{{ url('home/denglu') }}" target="_top" class="h">亲，请登录</a>
                         <a href="{{ url('home/zhuce') }}" target="_top">免费注册</a>
                     @else
                         <span class="h">你好：{{ session('uname') }}</span>
@@ -49,9 +49,15 @@
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
+				@if(!empty(session('Users')))
 				<div class="topMessage mini-cart">
-					<div class="menu-hd"><a id="mc-menu-hd" href="/home/shopcar" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+					<div class="menu-hd"><a id="mc-menu-hd" href="/home/shopcar/index/{{ session('id') }}" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
 				</div>
+				@else
+				<div class="topMessage mini-cart">
+					<div class="menu-hd"><a id="mc-menu-hd" href="{{ url('home/denglu') }}" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>登陆后在进入购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+				</div>
+				@endif
 				<div class="topMessage favorite">
 					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 			</ul>
