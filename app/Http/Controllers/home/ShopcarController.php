@@ -20,17 +20,24 @@ class ShopcarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$id)
+    public function index(Request $request)
     {
-        echo 'aaaaa';
-        // $shopcar = new Shopcars();
-        // $shopcar->shops_id = $id;
-        // $shopcar->kows_id = $request->kows_id;
-        // $shopcar->baozhuangs_id = $request->baozhuangs_id;
-        // $shopcar->shuliang = $request->shuliang;
-        // dd($shopcar);
-        // $shopcar->save();
+
+        $uid = session('id');
+        $shopcars = Shopcars::where('users_id',$uid)->get();
+        $shop_id = [];
+        foreach ($shopcars as $k => $v) {
+            $shop_id[] = $v['shops_id'];
+        }
+        $setting = Setting::first();
+        $links = Links::all();
+        $shops = Shops::all();
+        $kows = Kows::all();
+        $baozhuangs = Baozhuangs::all();
+
+        return view('home.shop.car',['shops'=>$shops,'shop_id'=>$shop_id,'shopcars'=>$shopcars,'links'=>$links,'setting'=>$setting,'title'=>'购物车','kows'=>$kows,'baozhuangs'=>$baozhuangs]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -70,9 +77,44 @@ class ShopcarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        dd(11111);
+        $shopcar = new Shopcars();
+        $shopcar->shops_id = $id;
+        $shopcar->kows_id = $request->kows_id;
+        $shopcar->baozhuangs_id = $request->baozhuangs_id;
+        $shopcar->shuliang = $request->shuliang;
+        $shopcar->users_id = session('id');
+        
+        if ($shopcar->save()) {
+           return redirect('/')->with('success','添加成功');
+        }else{
+              return back()->with('error','添加失败');
+        }
+
+        // $k = $request->all();
+        // $kows_id = $k['kows_id'];
+        // $baozhuangs_id = $k['baozhuangs_id'];
+        // $kows = Kows::where('id','=',$kows_id)->first();
+
+        // $baozhuang = Baozhuangs::where('id','=',$baozhuangs_id)->first();
+
+        // $uid = session('id');
+        // $shopcars = Shopcars::where('users_id',$uid)->get();
+        // $shop_id = [];
+        // foreach ($shopcars as $k => $v) {
+        //     $shop_id[] = $v['shops_id'];
+        // }
+        
+        // $shopcars
+
+        
+
+        // $setting = Setting::first();
+        // $links = Links::all();
+        // $shops = Shops::all();
+
+        // return view('home.shop.car',['shops'=>$shops,'shop_id'=>$shop_id,'shopcars'=>$shopcars,'links'=>$links,'setting'=>$setting,'title'=>'购物车','kows'=>$kows,'baozhuang'=>$baozhuang]);
     }
 
     /**
@@ -95,6 +137,12 @@ class ShopcarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $shopcars = Shopcars::findOrFail($id);
+        $uid = session('id');
+        if($shopcars->delete()){
+             return back()->with('success','删除成功');
+        }else{
+             return back()->with('error','删除失败');
+        }
     }
 }

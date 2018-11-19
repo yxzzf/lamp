@@ -15,10 +15,6 @@ class Shops extends Model
 	    return $this->hasOne('App\Model\Cates','id','cates_id');
 	}
 
-	public function cate()
-    {
-    	return $this->belongsTo('App\Model\Cate');
-    }
     //n商品对n标签
     public function tags()
     {
@@ -32,10 +28,6 @@ class Shops extends Model
     }
 
     //n商品对n用户
-    public function users()
-    {
-        return $this->belongsToMany('App\Model\Users');
-    }
 	public function order()
     {
         return $this->belongsToMany('App\Model\Order');

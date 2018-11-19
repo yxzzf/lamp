@@ -165,9 +165,7 @@
 							<img src="/home/2018-3.png"></img>
 							<p>赵丽颖<br>结 婚 啦</p>
 						</div>
-
 						<?php $a =0; ?>
-
 						@foreach($tuijian as $v)
 						@if ($a<=2)
 						<?php $a++; ?>
@@ -175,24 +173,15 @@
 							<div class="info ">
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
-
-	
-						
+							</div>
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
-
 						</div>
 						@endif
-
 						@endforeach
-
-	
+					</div>
 					<div class="clear "></div>
-
-
-
-
 					@foreach($cates as $k => $v)
                     <div id="f{{ $a++ }}">
 					<div class="am-container ">
@@ -200,14 +189,12 @@
 							<h4>{{$v -> cname}}</h4>
 							<h3>{{$v -> intro}}</h3>
 							<div class="today-brands ">
-
 								@foreach($tags as $kk => $vv)
 								@if ($v->id == $vv->cates_id)
 									
                             	<a href="/tags/{{$vv->id}}">{{$vv->tname}}</a>
 								@endif
                             	@endforeach
-
 							</div>
 							<span class="more ">
                     <a href="# ">更多美味<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
@@ -217,6 +204,7 @@
 					<div class="am-g am-g-fixed floodThree ">
 						<div class="am-u-sm-4 text-four list">
 							<div class="word">
+								
 								<?php $a =0; ?>
 								@foreach($tags as $kk1 => $vv1)
 								@if ($v->id == $vv1->cates_id && $a<=5)
@@ -224,7 +212,6 @@
                             		<a class="outer" href="#"><span class="inner"><b class="text">{{$vv1->tname}}</b></span></a>
 								@endif
                             	@endforeach
-
 							</div>
 							<a href="/cates/{{ $v->id }} ">
 								<img src="{{$cates[$k] -> cimage}}" />
@@ -242,7 +229,6 @@
 						<?php $b++; ?>		
 						<div class="am-u-sm-4 text-four">
 							<a href="/{{$vv2->id}}.html">
-
 								<img src="{{$vv2->simage}}" />
 								<div class="outer-con ">
 									<div class="title ">
@@ -257,10 +243,8 @@
 						</div>
 						@endif
 						@endforeach
-
 					</div>
 					<div class="clear "></div>
 					</div>
 					@endforeach
-
 <center> @include('layouts.home.footer')</center>

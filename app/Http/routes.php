@@ -176,7 +176,9 @@ if($wzkgs['kg'] == 1){
 Route::get('/{id}.html','admin\ShopsController@show');
 
 //购物车管理
+Route::get('/home/shopcar/index/{id}','home\ShopCarController@index');
 Route::resource('/home/shopcar/{id}','home\ShopCarController@edit');
+Route::post('/home/shopcar/destroy/{id}','home\ShopcarController@destroy');
 
 //前台分类下商品
 Route::get('/cates/{id}','home\HomeController@cates');

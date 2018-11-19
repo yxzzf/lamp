@@ -224,7 +224,8 @@
 														<div class="cart-title">口味</div>
 														<ul>
 															@foreach($kows as $k => $v)
-															<li class="sku-line" name="kows_id">{{ $v->kname }}<i></i></li>
+															<input name="kows_id" type="radio" value="{{ $v->id }}" id="test{{$v->id}}" >
+															<label for="test{{$v['id']}}">{{ $v->kname }}</label>
 															@endforeach
 														</ul>
 													</div>
@@ -232,7 +233,8 @@
 														<div class="cart-title">包装</div>
 														<ul>
 															@foreach($baozhuangs as $k => $v)
-															<li class="sku-line" name="baozhuangs_id">{{ $v->pname }}<i></i></li>
+															<input name="baozhuangs_id" type="radio" value="{{ $v->id }}" id="test1{{$v->id}}" >
+															<label for="test1{{$v['id']}}">{{ $v->pname }}</label>
 															@endforeach
 														</ul>
 													</div>

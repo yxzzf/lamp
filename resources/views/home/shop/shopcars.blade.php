@@ -47,40 +47,33 @@
 							
 							<div class="clear"></div>
 							<div class="bundle-main">
+								<?php $i= 0; ?> 
+								@foreach($shop_id as $k => $v)
+								<?php $i++; ?>
 								<ul class="item-content clearfix">
 									<li class="td td-chk">
 										<div class="cart-checkbox ">
-											<input class="check" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
+											<input class="check" id="{{ $i }}" name="shop_id[]" value="{{$shops[$v-1]->id}}" type="checkbox">
 											<label for="J_CheckBox_170037950254"></label>
 										</div>
 									</li>
 									<li class="td td-item">
-										<div class="item-pic">
-											<a href="#" target="_blank" data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆" class="J_MakePoint" data-point="tbcart.8.12">
-												<img src="/home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
-										</div>
 										<div class="item-info">
 											<div class="item-basic-info">
-												<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</a>
+												<a href="{{$shops[$v-1]->id}}.html" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">{{$shops[$v-1]->sname}}</a>
 											</div>
 										</div>
 									</li>
-									<li class="td td-info">
-										<div class="item-props item-props-can">
-											<span class="sku-line">颜色：12#川南玛瑙</span>
-											<span class="sku-line">包装：裸装</span>
-											<span tabindex="0" class="btn-edit-sku theme-login">修改</span>
-											<i class="theme-login am-icon-sort-desc"></i>
-										</div>
-									</li>
+									<li class="td td-price">
+                                		<p>口味：{{$shopcars[$k]->$kows['kname']}}</p>
+                            		    <p>包装：{{$shopcars[$k]->$baozhuangs['pname']}}</p>
+                            		</li>
 									<li class="td td-price">
 										<div class="item-price price-promo-promo">
 											<div class="price-content">
+												
 												<div class="price-line">
-													<em class="price-original">78.00</em>
-												</div>
-												<div class="price-line">
-													<em class="J_Price price-now" tabindex="0">39.00</em>
+													<em class="J_Price price-now" tabindex="0">{{$shops[$v-1]->money}}</em>
 												</div>
 											</div>
 										</div>
@@ -90,7 +83,7 @@
 											<div class="item-amount ">
 												<div class="sl">
 													<input class="min am-btn" name="" type="button" value="-" />
-													<input class="text_box" name="" type="text" value="3" style="width:30px;" />
+													<input class="text_box" name="" type="text" value="{{ $shopcars[$k]->shuliang }}" style="width:30px;" />
 													<input class="add am-btn" name="" type="button" value="+" />
 												</div>
 											</div>
@@ -98,7 +91,7 @@
 									</li>
 									<li class="td td-sum">
 										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number">117.00</em>
+											<em tabindex="0" class="J_ItemSum number">￥{{$shops[$v-1]->money * $shopcars[$k]->shuliang}}</em>
 										</div>
 									</li>
 									<li class="td td-op">
@@ -108,7 +101,7 @@
 										</div>
 									</li>
 								</ul>
-
+								@endforeach
 							</div>
 						</div>
 					</tr>
