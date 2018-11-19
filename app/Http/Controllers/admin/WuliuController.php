@@ -17,6 +17,7 @@ class WuliuController extends Controller
      */
     public function index()
     {
+        // 物流显示页面
         $wuliu = Wuliu::all();
         return view('admin.wuliu.index',['wuliu'=>$wuliu,'title'=>'物流浏览']);
     }
@@ -39,6 +40,7 @@ class WuliuController extends Controller
      */
     public function store(Request $request)
     {
+        // 物流添加
         if($request -> hasFile('image')){
             $profile = $request -> file('image');
             $ext = $profile ->getClientOriginalExtension();
@@ -47,6 +49,7 @@ class WuliuController extends Controller
             $res = $profile -> move($dir_name,$file_name);
             $profile_path = ltrim($dir_name.'/'.$file_name,'.');
         }else{
+            // 如果没有选择图片就使用该默认图片
             $profile_path = '/uploads/shopimages/baishi.png';
         }
         $wuliu = new Wuliu;

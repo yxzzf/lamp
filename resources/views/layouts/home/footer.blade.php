@@ -25,7 +25,7 @@
 		<div class="navCir">
 			<li class="active"><a href="/"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li><a href="/home/shopcar"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
+			<li><a href="/home/shopcar/index/{{ session('id') }}"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
 			<li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
 
@@ -55,7 +55,7 @@
 
 					</div>
 					<div id="shopCart " class="item ">
-						<a href="/home/shopcar">
+						<a href="/home/shopcar/index/{{ session('id') }}">
 							<span class="message "></span>
 						</a>
 						<p>

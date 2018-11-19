@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
+        // 前台首页
         $cates = Cates::all();//分类
       
         $guanggao = Guanggao::all();
@@ -127,6 +127,7 @@ class HomeController extends Controller
 
     public function modify()
     {
+        // 网站维护页面
         return view('home.modify.modify');
     }
 }

@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
-    	
+    	// 修改logo 
     	if($request -> hasFile('logo')){
             $profile = $request -> file('logo');
             $ext = $profile ->getClientOriginalExtension();
@@ -28,12 +28,16 @@ class AdminController extends Controller
             $dir_name = './uploads/logo/'.date('Ymd',time());
             $res = $profile -> move($dir_name,$file_name);
             $profile_path = ltrim($dir_name.'/'.$file_name,'.');
+        }else{
+            // 如果没有修改就使用默认logo
+            $profile_path = '/uploads/iaugfa105210350.png';
         }
 
 		$setting = setting::first();
 		if(!$setting){
 			$setting = new setting;
 		}
+        // 网站控制中的所有数据,并修改
 		$setting -> title = $request->title;
 		$setting -> keywords = $request->keywords;
 		$setting -> description = $request->description;

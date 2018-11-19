@@ -18,6 +18,7 @@ class WzkgsController extends Controller
     
     public function store(Request $request)
     {
+        // 网站开关
         $wzkgs = Wzkgs::find(1);
         $wzkgs->kg = $request->kg;
         if($wzkgs -> save()){

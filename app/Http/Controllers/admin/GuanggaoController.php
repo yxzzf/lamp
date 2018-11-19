@@ -17,10 +17,10 @@ class GuanggaoController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        // 广告显示页面
         $showCount = $request->input('showCount',3);
         $search = $request->input('search','');
-
+        // 搜索分页
         $gg = Guanggao::where('name','like','%'.$search.'%')->paginate($showCount);
         return view('admin.guanggao.index',['gg'=>$gg,'title'=>'广告浏览','request'=>$request]);
     }
@@ -44,7 +44,7 @@ class GuanggaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 广告图片
         if($request -> hasFile('images')){
             $profile = $request -> file('images');
             $ext = $profile ->getClientOriginalExtension();
@@ -99,8 +99,7 @@ class GuanggaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        
+        // 要修改的广告图片
         if($request -> hasFile('images')){
             $profile = $request -> file('images');
             $ext = $profile ->getClientOriginalExtension();
@@ -132,7 +131,7 @@ class GuanggaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 删除该数据
         $gg = Guanggao::findOrFail($id);
         if($gg->delete()){
              return redirect('/admin/guanggao')->with('success','删除成功');

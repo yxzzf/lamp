@@ -47,7 +47,7 @@
 																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
 																		@foreach($tags as $vv) @if($vv->cates_id == $v->id)
 																		<dd>
-																			<a title="{{$vv->sname}}" href="/tags/{{ $vv->id }}">{{$vv ->tname}}<span></span></a>
+																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
 																		</dd>
 																		@endif
 																		@endforeach
@@ -221,7 +221,7 @@
 								@endif
                             	@endforeach
 							</div>
-							<a href="/cates/{{ $v->id }} ">
+							<a href="/cates/{{ $v['id'] }} ">
 								<img src="{{$cates[$k] -> cimage}}" />
 								<div class="outer-con ">
 									<div class="title ">

@@ -19,7 +19,7 @@ class LinksController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        // 友链首页显示,分页搜索
         $showCount = $request->input('showCount',3);
         $search = $request->input('search','');
 
@@ -48,7 +48,7 @@ class LinksController extends Controller
     {
         //
         $links = new Links;
-
+        // 要添加的数据
         $links -> name = $request ->name;
         $links -> url = $request ->url;
 
@@ -80,7 +80,7 @@ class LinksController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 跳转修改页面
         $links = Links::findOrFail($id);
         return view('admin.links.edit',['links'=>$links,'title'=>'友链修改']); 
     }
@@ -94,7 +94,7 @@ class LinksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // 修改友链的数据
         $links = Links::findOrFail($id);
 
         $links -> name = $request->name;

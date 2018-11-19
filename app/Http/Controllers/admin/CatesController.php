@@ -34,7 +34,7 @@ class CatesController extends Controller
     {
         //
         $search = $request->input('search','');
-
+        // 搜索
         $cates = Cates::where('cname','like','%'.$search.'%')
                 ->get();
 
@@ -63,8 +63,9 @@ class CatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 添加数据
         $cates = new Cates;
+        // 获取添加数据的数据
         $cates->cname = $request->input('cname','');
         $cates->intro = $request->input('intro','');
         if($cates -> save()){
@@ -93,7 +94,7 @@ class CatesController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 带着要修改的值,跳转到修改页面
         $cates = Cates::findOrFail($id);
         return view('admin.cates.edit',['cates'=>$cates,'title'=>'分类修改']); 
     }
@@ -109,7 +110,7 @@ class CatesController extends Controller
     {
         //
         $cates = Cates::findOrFail($id);
-
+        // 获取修改后的数据
         $cates -> cname = $request->cname;
         $cates -> intro = $request->intro;
 
@@ -128,9 +129,9 @@ class CatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 获取要删除数据的ID
         $cates = Cates::findOrFail($id);
-
+        // 该ID下有子分类不能删除
         if($cates){
             return back()->with('error','此分类有商品请不要删除');
         }

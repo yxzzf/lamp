@@ -43,7 +43,7 @@
         </div>
         <div class="topMessage mini-cart">
             <div class="menu-hd">
-                <a id="mc-menu-hd" href="/home/shopcar" target="_top">
+                <a id="mc-menu-hd" href="/home/shopcar/index/{{ session('id') }}" target="_top">
                         <i class="am-icon-shopping-cart  am-icon-fw"></i>
                         <span>购物车</span>
                 </a>     

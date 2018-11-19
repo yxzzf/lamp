@@ -22,8 +22,9 @@ class ShopcarController extends Controller
      */
     public function index(Request $request)
     {
-
+        // 获取登录用户的ID
         $uid = session('id');
+        // 通过登录用户的ID获取购物车表里的数据
         $shopcars = Shopcars::where('users_id',$uid)->get();
         $shop_id = [];
         foreach ($shopcars as $k => $v) {

@@ -42,11 +42,11 @@ Route::get('/home/mmxx/{id}','home\GrzxController@mmxx');
 Route::post('/home/zxxg/{id}','home\GrzxController@zxxg');
 
 //地址管理
-Route::get('/home/dzym{id}','home\GrzxController@dzym');
+Route::get('/home/dzym/{id}','home\GrzxController@dzym');
 Route::post('/home/dztj','home\GrzxController@dztj');
 
 //前台注册
-Route::get('/home/zhuce','home\LogController@zhucse');
+Route::get('/home/zhuce','home\LogController@zhuce');
 
 //注册操作
 Route::post('/home/store','home\LogController@store');
@@ -177,7 +177,7 @@ Route::get('/{id}.html','admin\ShopsController@show');
 
 //购物车管理
 Route::get('/home/shopcar/index/{id}','home\ShopCarController@index');
-Route::resource('/home/shopcar/{id}','home\ShopCarController@edit');
+Route::post('/home/shopcar/{id}','home\ShopCarController@edit');
 Route::post('/home/shopcar/destroy/{id}','home\ShopcarController@destroy');
 
 //前台分类下商品
