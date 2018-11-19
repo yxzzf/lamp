@@ -15,10 +15,6 @@ use App\Model\Dizhis;
 
 
 
-
-
-
-
 class GrzxController extends Controller
 {
    public function index()
@@ -98,9 +94,11 @@ class GrzxController extends Controller
 
   	  } 
 
-  	  public function dzym(Request $request)
+  	  public function dzym(Request $request, $id)
   	  {
-  	  	return view('home.grzx.dzym',['title'=>'地址管理']);
+  	  	$id = session('id');
+  	  	$dizhis = Dizhis::all();
+  	  	return view('home.grzx.dzym',['title'=>'地址管理','dizhis'=>$dizhis]);
   	  }
 
 
@@ -120,6 +118,7 @@ class GrzxController extends Controller
 
         ]);
         $dizhis = new Dizhis;
+        $dizhis -> uid = session('id');
         $dizhis -> uname = $request->uname;
         $dizhis -> phone = $request->phone;
         $dizhis -> dizhi = $request->sheng.'-'.$request->shi.'-'.$request->xian;
@@ -129,6 +128,17 @@ class GrzxController extends Controller
             return redirect('/home/grzx')->with('success','添加成功');
         }else{
             return back()->with('error','添加失败');
+        }
+  	  }
+
+  	  public function dzsc($id)
+  	  {
+  	  	$dizhis = Dizhis::findOrFail($id);
+
+        if($dizhis->delete()){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败!');
         }
   	  }
 

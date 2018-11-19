@@ -28,5 +28,9 @@ class Users extends Model
 
         return $this->belongsToMany('App\Model\Order_shop');
     }
+    public function Dizhis()
+    {
+        return $this->hasMany('App\Model\Dizhis','id','uid');
+    }
     
 }

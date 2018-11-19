@@ -1,4 +1,4 @@
-@extends('layouts.grzx') @section('title') 个人资料 @endsection @section('title','个人资料') 
+@extends('layouts.grzx') @section('title') 个人中心 @endsection @section('title','个人资料') 
 @section('content')
 	<head>
 		<meta charset="utf-8">
@@ -22,7 +22,7 @@
 										<a href="information.html">
 											<img src="{{ $user->pic }}">
 										</a>
-										<em class="s-name">{{session('uname')}}<span class="vip1"></span></em>
+										<em class="s-name">{{ session('uname') }}<span class="vip1"></span></em>
 										<div class="s-prestige am-btn am-round">
 											会员福利</div>
 									</div>

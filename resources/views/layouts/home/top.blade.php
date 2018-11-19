@@ -28,7 +28,7 @@
 		<div class="topMessage">
 		 <div class="menu-hd">
                     @if(empty(session('Users')))
-                        <a href="{{ url('home/login') }}" target="_top" class="h">亲，请登录</a>
+                        <a href="{{ url('home/denglu') }}" target="_top" class="h">亲，请登录</a>
                         <a href="{{ url('home/zhuce') }}" target="_top">免费注册</a>
                     @else
                         <span class="h">你好：{{ session('uname') }}</span>

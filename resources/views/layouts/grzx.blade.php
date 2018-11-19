@@ -54,6 +54,7 @@
 			                        <a href="{{ url('home/zhuce') }}" target="_top">免费注册</a>
 			                    @else
 			                        <span class="h">你好：{{ session('uname') }}</span>
+			                        
 			                        <a href="{{ url('home/loginout') }}">退出</a>
 			                    @endif
 			                </div>

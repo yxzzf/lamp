@@ -54,7 +54,6 @@
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
 								    <input type="text" name="uname" id="uname" placeholder="用户名">
-						  	}
                  </div>
                  <div class="user-pass">
 								    <label for="password"><i class="am-icon-lock"></i></label>

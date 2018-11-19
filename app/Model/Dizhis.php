@@ -8,4 +8,5 @@ class Dizhis extends Model
 {
     //
     public $table = 'dizhis';
+
 }
