@@ -42,10 +42,11 @@ Route::get('/home/mmxx/{id}','home\GrzxController@mmxx');
 Route::post('/home/zxxg/{id}','home\GrzxController@zxxg');
 
 //地址管理
-
+Route::get('/home/dzym{id}','home\GrzxController@dzym');
+Route::post('/home/dztj','home\GrzxController@dztj');
 
 //前台注册
-Route::get('/home/zhuce','home\LogController@zhuce');
+Route::get('/home/zhuce','home\LogController@zhucse');
 
 //注册操作
 Route::post('/home/store','home\LogController@store');
@@ -64,8 +65,7 @@ Route::resource('/admin/baozhuang','admin\BaozhuangController');
 //商品口味
 Route::resource('/admin/kow','admin\KowController');
 
-//前台商品详情
-Route::resource('/home/spxq','home\SpxqController');
+
 
 
 

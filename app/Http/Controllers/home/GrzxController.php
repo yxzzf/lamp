@@ -11,6 +11,7 @@ use App\Model\Users;
 use Hash;
 use Auth;
 use User;
+use App\Model\Dizhis;
 
 
 
@@ -95,19 +96,41 @@ class GrzxController extends Controller
 			return back()->with('error','修改密码失败');
 		}
 
-
-
-
-
-	    
-
-	    
-	    
-
-	   
-
-
   	  } 
+
+  	  public function dzym(Request $request)
+  	  {
+  	  	return view('home.grzx.dzym',['title'=>'地址管理']);
+  	  }
+
+
+  	  public function dztj(Request $request)
+  	  {
+  	  	 $this->validate($request, [
+
+            'uname' => 'required|unique:dizhis|regex:/^[a-zA-Z]{1}[\w]{1,15}$/',
+            'phone' => 'required|regex:/^1{1}[345678]{1}[\d]{9}$/',
+
+        ],[
+            'uname.required' => '收货人必填',
+            'uname.regex' => '收货人格式错误',
+            'uname.unique' => '收货人已存在',
+            'phone.required' => '电话号必填',
+            'phone.regex' => '电话格式不正确',
+
+        ]);
+        $dizhis = new Dizhis;
+        $dizhis -> uname = $request->uname;
+        $dizhis -> phone = $request->phone;
+        $dizhis -> dizhi = $request->sheng.'-'.$request->shi.'-'.$request->xian;
+        $dizhis -> xd = $request->xd;
+
+        if($dizhis -> save()) {
+            return redirect('/home/grzx')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+  	  }
 
 
 }

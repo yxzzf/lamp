@@ -25,7 +25,7 @@
                     			</div>
                     			
                     			<div class="input-field col s8 mws-form-row">
-                        	<div data-toggle="distpicker">
+                        <div data-toggle="distpicker">
                            <label class="mws-form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址</font></font></label>
                             <div class="form-group">
                                 <select class="form-control" id="province1" name="sheng"></select>
@@ -37,12 +37,12 @@
                                 <select class="form-control" id="district1" name="xian"></select>
                             </div>
                         </div>
-                          <div class="mws-form-row">
+                        <div class="mws-form-row">
                     				<label class="mws-form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细地址</font></font></label>
                     				<div class="mws-form-item">
                     					<input type="text" class="small" name="xd">
                     				</div>
-                    			</div>  
+                    	</div>  
                     </div>        			
                     		</div>
                     		<div class="mws-button-row">
