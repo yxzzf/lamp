@@ -5,7 +5,13 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 
 use App\Model\Cates;
+use App\Model\Setting;
+use App\Model\Lunbotus;
+use App\Model\Links;
 use App\Model\Shops;
+use App\Model\Tuijian;
+use App\Model\Baozhuangs;
+use App\Model\Kows;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -94,7 +100,14 @@ class ShopsController extends Controller
      */
     public function show($id)
     {
-        //
+        $setting = Setting::first();
+        $lunbotus = Lunbotus::all();
+        $links = Links::all();
+        $kows = Kows::all();
+        $baozhuangs = baozhuangs::all();
+        $shops = Shops::findOrFail($id);
+        $tuijian = Tuijian::all();
+        return view('home.shop.index',['setting'=>$setting,'lunbotus'=>$lunbotus,'links'=>$links,'shops'=>$shops,'kows'=>$kows,'baozhuangs'=>$baozhuangs,'tuijian'=>$tuijian]);
     }
 
     /**

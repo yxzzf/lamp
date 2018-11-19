@@ -46,6 +46,18 @@ class HomeController extends Controller
         return view('home',['cates'=>$cates,'tuijian'=>$tuijian,'tags'=>$tags,'shops'=>$shops,'guanggao'=>$guanggao,'links'=>$links,'lunbotus'=>$lunbotus,'setting'=>$setting,'a'=>$a,'cid'=>$cid]);
     }
 
+    public function cates(Request $request,$id)
+    {
+        $tags = Tag::all();
+        $cates = Cates::all();
+        $shops = Shops::all();
+        
+        $links = Links::all();
+        $setting = Setting::first();
+        return view('home.demo.cates',['cates'=>$cates,'tags'=>$tags,'shops'=>$shops,'links'=>$links,'setting'=>$setting]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

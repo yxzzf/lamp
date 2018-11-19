@@ -176,22 +176,20 @@
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
 
-	
-						
+
+
+
+
+
+							</div>
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
-
 						</div>
 						@endif
-
 						@endforeach
-
-	
+					</div>
 					<div class="clear "></div>
-
-
-
 
 					@foreach($cates as $k => $v)
                     <div id="f{{ $a++ }}">
@@ -200,14 +198,12 @@
 							<h4>{{$v -> cname}}</h4>
 							<h3>{{$v -> intro}}</h3>
 							<div class="today-brands ">
-
 								@foreach($tags as $kk => $vv)
 								@if ($v->id == $vv->cates_id)
 									
                             	<a href="/tags/{{$vv->id}}">{{$vv->tname}}</a>
 								@endif
                             	@endforeach
-
 							</div>
 							<span class="more ">
                     <a href="# ">更多美味<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
@@ -224,7 +220,6 @@
                             		<a class="outer" href="#"><span class="inner"><b class="text">{{$vv1->tname}}</b></span></a>
 								@endif
                             	@endforeach
-
 							</div>
 							<a href="/cates/{{ $v->id }} ">
 								<img src="{{$cates[$k] -> cimage}}" />
@@ -242,8 +237,6 @@
 						<?php $b++; ?>		
 						<div class="am-u-sm-4 text-four">
 
-					
-
 							<a href="/{{$vv2->id}}.html">
 
 								<img src="{{$vv2->simage}}" />
@@ -260,10 +253,8 @@
 						</div>
 						@endif
 						@endforeach
-
 					</div>
 					<div class="clear "></div>
 					</div>
 					@endforeach
-
 <center> @include('layouts.home.footer')</center>
