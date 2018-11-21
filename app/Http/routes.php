@@ -17,18 +17,32 @@ use App\Model\Wzkgs;
 Route::get('/', function () {
     return view('welcome');
 });
-//用户列表
-
-Route::resource('/admin/user','admin\UserController');
-
-//地址列表
-Route::resource('/admin/dizhi','admin\DizhiController');
 
 //后台用户登录
 Route::get('admin/login','admin\LoginController@login');
 
 //后台登录验证
 Route::post('/admin/dologin','admin\LoginController@dologin');
+
+// Route::group(['middleware'=>'login'],function(){
+	//用户列表
+	Route::resource('/admin/user','admin\UserController');
+
+	//后台更改密码
+	Route::get('/admin/htmm','admin\AdminController@htmm');
+	Route::post('/admin/zmxg/{id}','admin\AdminController@zmxg');
+
+	//地址列表
+	Route::resource('/admin/dizhi','admin\DizhiController');
+	//商品包装
+	Route::resource('/admin/baozhuang','admin\BaozhuangController');
+
+	//商品口味
+	Route::resource('/admin/kow','admin\KowController');
+
+// });
+
+
 
 //个人中心
 Route::get('/home/grzx','home\GrzxController@index');
@@ -60,11 +74,7 @@ Route::post('/home/dlg','home\LogController@dlg');
 
 //退出登录
 Route::get('/home/loginout','home\LogController@loginout');
-//商品包装
-Route::resource('/admin/baozhuang','admin\BaozhuangController');
 
-//商品口味
-Route::resource('/admin/kow','admin\KowController');
 
 
 

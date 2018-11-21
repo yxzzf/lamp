@@ -125,8 +125,8 @@
 								</em>
 							</div>
 							<div class="member-logout">
-								<a class="am-btn-warning btn" href="login.html">登录</a>
-								<a class="am-btn-warning btn" href="register.html">注册</a>
+								<a class="am-btn-warning btn" href="/home/denglu">登录</a>
+								<a class="am-btn-warning btn" href="/home/zhuce">注册</a>
 							</div>
 							<div class="clear"></div>	
 						</div>																	    

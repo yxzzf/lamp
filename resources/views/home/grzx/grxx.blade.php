@@ -2,6 +2,10 @@
 @section('content')
 	<head>
 		<meta charset="utf-8">
+		<!-- 错误修改 -->
+		 <link rel="stylesheet" href="/home/layui/css/layui.css" media="all">
+        <script src="/home/layui/layui.all.js"></script>
+		<!-- 错误修改 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
 		<title>个人信息</title>
@@ -30,7 +34,11 @@
 
 							<div class="filePic">
 								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*" name="pic" value="{{ $user->pic }}">
-								<img class="am-circle am-img-thumbnail" src="{{ $user->pic}}" alt="">
+								@if(!empty($user->pic))
+								<img class="am-circle am-img-thumbnail" src="{{ $user->pic}}" alt="" style='width:90px;height:90px;border-radius:50%;'>
+								@else
+								<img class="am-circle am-img-thumbnail" src="/home/images/timg.jpg" alt="">
+								@endif
 							</div>  
 
 							<p class="am-form-help">头像</p>
@@ -61,7 +69,7 @@
 									<label for="user-name" class="am-form-label">姓名</label>
 								
 									<div class="am-form-content">
-										<input type="text" id="user-name2" name="uname"  value="{{$user->uname}}">
+										<input type="text" id="user-name2" name="uname"  value="{{$user->uname}}" readonly>
 									
 									</div>
 								
@@ -142,7 +150,46 @@
 
 					</div>
 
+</script>
+         <!-- 读取提示信息开始 -->
+    @if (session('success'))
+        <script type="text/javascript">
+            var layer = layui.layer
+                 ,form = layui.form;
 
+
+            layer.alert("{{ session('success') }}");           
+        </script>;
+    @endif
+    @if (session('error'))
+      <script type="text/javascript">
+      var layer = layui.layer
+         ,form = layui.form;
+            layer.alert("{{ session('error') }}");         
+        </script>;
+    @endif
+    <!-- 读取提示信息结束 -->
+
+
+    <!-- 显示验证错误信息 开始 -->
+    @if (count($errors) > 0)
+    <div class="">
+        <ul> 
+        @foreach ($errors->all() as $k=>$v)
+            <script type="text/javascript">
+            var layer = layui.layer
+                ,form = layui.form;
+                if('{{ $k }}' == 0){
+                    layer.alert('{{ $v }}')
+                }                   
+            </script>;
+        @endforeach
+       </ul>
+    </div>
+    @endif
+    <!-- 显示验证错误信息 结束 -->
+</body>
+</html>
 
 
 

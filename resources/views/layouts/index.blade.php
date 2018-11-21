@@ -76,7 +76,7 @@
                         你好,管理员
                     </div>
                     <ul>
-                        <li><a href="#">更改密码</a></li>
+                        <li><a href="/admin/htmm">更改密码</a></li>
                         <li><a href="/admin/login">退出</a></li>
                     </ul>
                 </div>

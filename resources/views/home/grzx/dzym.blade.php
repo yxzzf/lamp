@@ -7,7 +7,7 @@
 	<!-- 错误修改 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css"> 
 
 		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
 		<link href="/home/css/addstyle.css" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
    <hr /> 
    <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails"> 
    	@foreach($dizhis as $k => $v)
-    <li class="user-addresslist defaultAddr"> <span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span> <p class="new-tit new-p-re"> <span class="new-txt">{{ $v->uname }}</span> <span class="new-txt-rd2">{{ $v->phone }}</span> </p> 
+    <li class="user-addresslist defaultAddr"> <span class="new-option-r"><i class="am-icon-check-circle"></i></span> <p class="new-tit new-p-re"> <span class="new-txt">{{ $v->uname }}</span> <span class="new-txt-rd2">{{ $v->phone }}</span> </p> 
      <div class="new-mu_l2a new-p-re"> 
       <p class="new-mu_l2cw"> <span class="title">地址：</span>{{ $v->dizhi }}<span class="street">{{ $v->xd }}</span></p> 
      </div> 

@@ -9,7 +9,7 @@ class UsersStoreRequest extends Request
     /**
      * Determine if the user is authorized to make this request.
      *
-     * @return bool
+     * @return bool  
      */
     public function authorize()
     {
@@ -24,7 +24,7 @@ class UsersStoreRequest extends Request
     public function rules()
     {
         return[
-            'uname' => 'required|unique:users|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
+            'uname' => 'required|unique:users|regex:/^[a-zA-Z]{1}[\w]{1,15}$/',
             'pwd' => 'required|regex:/^[\w]{6,18}$/',
             'phone' => 'required|regex:/^1{1}[345678]{1}[\d]{9}$/',
             'email' => 'required|email',

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\Setting;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Model\Users;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -50,4 +52,34 @@ class AdminController extends Controller
 			return back()->with('error','设置失败!!');
 		}
     }
+
+    public function htmm()
+    {
+        $id = session('adminUser')->id;
+        $user = Users::where('id','=',$id)->first();
+        return view('admin.ggmm.htmm',['title'=>'修改密码','user'=>$user]);
+    }
+
+    public function zmxg(Request $request, $id)
+    {
+            $user = Users::find($id);
+            $oldpwd = $request->input('oldpwd');
+            if (!Hash::check($oldpwd, $user['pwd'])){
+                return back()->with('error','原密码错误,请重新输入');
+            }
+            $pwd = Hash::make($request->input('pwd'));
+            $pwdok = Hash::make($request->input('pwdok'));
+            if (Hash::check($oldpwd, $pwd)){
+                return back()->with('error','修改密码不能与原密码相同');
+            }
+            $user->pwd = $pwd;
+            $res = $user->save();
+            if($res){
+                return back()->with('success','修改密码成功');
+            }else{
+                return back()->with('error','修改密码失败');
+            }
+    }
+
+
 }
