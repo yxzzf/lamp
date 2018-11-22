@@ -117,7 +117,11 @@
 						<div class="mod-vip">
 							<div class="m-baseinfo">
 								<a href="javascript:void(0);">
+									@if (session('Users'))
+									<img src="{{ session('Users')->pic }}">
+									@else
 									<img src="/home/images/getAvatar.do.jpg">
+									@endif
 								</a>
 								<em>
 									Hi,<span class="s-name">{{ session('uname') }}</span>

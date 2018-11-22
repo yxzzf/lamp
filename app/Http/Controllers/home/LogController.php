@@ -42,7 +42,7 @@ class LogController extends Controller
             $users->uname = $request->input('uname','');
 
             $users->pwd = Hash::make($request->input('pwd'));
-  
+            $users->pic = '/home/images/timg.jpg';
              if($users ->save()){
                    return redirect('/home/denglu')->with('success','注册成功');
                 }else{

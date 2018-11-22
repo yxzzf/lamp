@@ -19,9 +19,23 @@
     </form>
                     <div class="mws-panel-inner-wrap"><div class="mws-panel-body no-padding">
                         <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><table class="mws-table mws-datatable dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
-                            <thead>
-                                <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">用户ID</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">收货人</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">电话</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 98px;">地址</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 98px;">详细地址</th><form action="/admin/xx/uploads" method="post" enctype="multipart/from-data"></form><th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作</th></tr>
-                            </thead>
+                <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">用户ID
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">收货人
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">电话
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 98px;">地址
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 98px;">详细地址
+                        </th>
+                        <form action="/admin/xx/uploads" method="post" enctype="multipart/from-data"></form>
+                        <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作
+                        </th>
+                    </tr>
+                </thead>
                             
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
                             @foreach($dizhis as $k=>$v)
@@ -31,16 +45,15 @@
                                     <td class="table-phone">{{$v->phone}}</td>
                                     <td class="table-email">{{$v->dizhi}}</td>
                                     <td class="table-email">{{$v->xd}}</td>
-                                    <td class=" ">
-                                    
-                                        <form action="/admin/dizhi/{{$v->id}}" method="post">
+                                    <td>
+                                    <form action="/admin/dizhi/{{$v->id}}" method="post">
                                         <span class="btn-group">
                                         {{method_field('DELETE')}}
                                         {{ csrf_field() }}
                                         <a href="/admin/dizhi/{{$v->id}}/edit" class="btn btn-success">修改</a>
                                         <input type="submit" value="删除" class="btn btn-danger">
                                         </span>
-                        </form>
+                                    </form>
                                     </td>
 
                                 </tr>

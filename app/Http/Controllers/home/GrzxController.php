@@ -110,7 +110,7 @@ class GrzxController extends Controller
   	  {
   	  	 $this->validate($request, [
 
-            'uname' => 'required|unique:dizhis|regex:/^[a-zA-Z]{1}[\w]{1,15}$/',
+           'uname' => 'required|unique:users|regex:/^[\x{4e00}-\x{9fa5}A-Za-z0-9-_]+$/u',
             'phone' => 'required|regex:/^1{1}[345678]{1}[\d]{9}$/',
 
         ],[
