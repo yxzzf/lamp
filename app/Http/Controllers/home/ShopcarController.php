@@ -81,11 +81,6 @@ class ShopcarController extends Controller
     public function edit(Request $request, $id)
     {
 
-        // if(empty($request->kows_id)){
-        //     return back()->('error','口味不能为空');
-        
-        // }
-
         $shopcar = new Shopcars();
         $shopcar->shops_id = $id;
         $shopcar->kows_id = $request->kows_id;
