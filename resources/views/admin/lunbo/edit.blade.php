@@ -21,19 +21,6 @@
      					<input type="file" name="pic" value="{{$lunbo['pic']}}">
      				</div>
      			</div>
-                   <div class="mws-form-row">
-                         <label class="mws-form-label">状态</label>
-                         <div class="mws-form-item">
-                              <label>
-                             <input class="radio" name="status" type="radio" @if($lunbo->status == '1') checked  @endif value="1">
-                             <span>启用</span>
-                         </label>
-                         <label>
-                             <input class="radio" name="status" type="radio" @if($lunbo->status == '0') checked @endif value="0">
-                             <span>禁用</span>
-                         </label>
-                         </div>
-                    </div>
      			<div class="mws-form-row">
                                    
                          {{method_field('PUT')}}

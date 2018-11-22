@@ -25,7 +25,7 @@
     <div class="dataTables_wrapper" id="DataTables_Table_1" role="grid">
         <table class="mws-table">
             <thead>
-                <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">ID</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">URL</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">图片</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 98px;">状态</th><th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作</th></tr>
+                <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 116px;">ID</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 156px;">URL</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 143px;">图片</th><th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="" style="width: 102px;">操作</th></tr>
             </thead>
             <tbody role="alert" aria-live="polite" aria-relevant="all">
             @foreach($lunbotus as $k=>$v)
@@ -33,11 +33,6 @@
                         <td class="table-id">{{ $v->id }}</td>
                         <td class="table-url">{{ $v->url}}</td>
                         <td class="table-pic"><img src="{{ $v ->pic}}" alt="" width="50"></td>
-                        <td class="table-status">
-                            @if($v->status == '1') 启用
-                                @elseif($v->status == '0') 禁用
-                            @endif
-                        </td>
                         <td class=" ">
                             <form action="/admin/lunbo/{{$v->id}}" method="post">
                                 {{method_field('DELETE')}}

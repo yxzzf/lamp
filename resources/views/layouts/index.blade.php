@@ -35,7 +35,6 @@
 <link rel="stylesheet" type="text/css" href="/admin/page_page.css" media="screen">
 <!-- 地址 start -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<!-- <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">  -->
 <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script> 
 <script src="/dizhi/js/distpicker.data.js"></script>

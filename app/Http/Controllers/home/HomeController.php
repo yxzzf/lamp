@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         // 前台首页
         $cates = Cates::all();//分类
-      
+        
         $guanggao = Guanggao::all();
         $lunbotus = Lunbotus::all();
         $links = Links::all();

@@ -30,8 +30,8 @@
 							<div class="clear"></div>
 						
 						<div class="login-form">
-						  <form action="/home/dlg" method="post">
-						  	{{ csrf_field() }}
+		  <form action="/home/dlg" method="post">
+		  	{{ csrf_field() }}
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
 								    <input type="text" name="uname" id="uname" placeholder="用户名">

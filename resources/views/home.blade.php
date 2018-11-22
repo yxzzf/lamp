@@ -116,12 +116,12 @@
 							    
 						<div class="mod-vip">
 							<div class="m-baseinfo">
-								<a href="../person/index.html">
+								<a href="javascript:void(0);">
 									<img src="/home/images/getAvatar.do.jpg">
 								</a>
 								<em>
-									Hi,<span class="s-name">小叮当</span>
-									<a href="#"><p>点击更多优惠活动</p></a>									
+									Hi,<span class="s-name">{{ session('uname') }}</span>
+									<a href="javascript:void(0);"><p>点击更多优惠活动</p></a>									
 								</em>
 							</div>
 							<div class="member-logout">
