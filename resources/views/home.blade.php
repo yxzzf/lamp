@@ -176,14 +176,9 @@
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
 
-
-
-
-
-
 							</div>
 							<div class="recommendationMain one">
-								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
+								<a href="#"><img src="{{ $v->tpic }}"></img></a>
 							</div>
 						</div>
 						@endif
