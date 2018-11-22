@@ -80,6 +80,12 @@ class ShopcarController extends Controller
      */
     public function edit(Request $request, $id)
     {
+
+        // if(empty($request->kows_id)){
+        //     return back()->('error','口味不能为空');
+        
+        // }
+
         $shopcar = new Shopcars();
         $shopcar->shops_id = $id;
         $shopcar->kows_id = $request->kows_id;
@@ -87,6 +93,12 @@ class ShopcarController extends Controller
         $shopcar->shuliang = $request->shuliang;
         $shopcar->users_id = session('id');
         
+        if(empty($request->kows_id)){
+            return back()->with('error','口味不能为空');
+        }
+        if(empty($request->baozhuangs_id)){
+            return back()->with('error','包装不能为空');
+        }
         if ($shopcar->save()) {
            return redirect('/')->with('success','添加成功');
         }else{
