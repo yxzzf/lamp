@@ -42,8 +42,6 @@ Route::post('/admin/dologin','admin\LoginController@dologin');
 
 // });
 
-
-
 //个人中心
 Route::get('/home/grzx','home\GrzxController@index');
 
