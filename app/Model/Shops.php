@@ -32,11 +32,6 @@ class Shops extends Model
     {
         return $this->belongsToMany('App\Model\Order');
     }
-    public function Order_shop()
-    {
-        return $this->belongsToMany('App\Model\Order_shop');
-
-    }
 
     //n商品对n口味
     public function kows()

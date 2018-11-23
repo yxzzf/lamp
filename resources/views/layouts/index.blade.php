@@ -35,6 +35,7 @@
 <link rel="stylesheet" type="text/css" href="/admin/page_page.css" media="screen">
 <!-- 地址 start -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<!-- <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css" rel="stylesheet">  -->
 <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script> 
 <script src="/dizhi/js/distpicker.data.js"></script>
@@ -75,7 +76,7 @@
                         你好,管理员
                     </div>
                     <ul>
-                        <li><a href="/admin/htmm">更改密码</a></li>
+                        <li><a href="#">更改密码</a></li>
                         <li><a href="/admin/login">退出</a></li>
                     </ul>
                 </div>
@@ -206,7 +207,6 @@
                         <a href="#"><i class="icon-list"></i>订单管理</a>
                         <ul>
                             <li><a href="/admin/order">订单列表</a></li>
-                            <li><a href="/admin/order/create">订单管理</a></li>
                         </ul>
                     </li>
                     <li class="active">
@@ -217,10 +217,10 @@
                         </ul>
                     </li>
                     <li class="active">
-                        <a href="#"><i class="icon-list"></i>头条管理</a>
+                        <a href="#"><i class="icon-list"></i>足迹管理</a>
                         <ul>
-                            <li><a href="/admin/toutiao">头条列表</a></li>
-                            <li><a href="/admin/toutiao/create">头条添加</a></li>
+                            <li><a href="/admin/zuji">足迹列表</a></li>
+                            <li><a href="/admin/zuji/create">足迹添加</a></li>
                         </ul>
                     </li>
                 </ul>

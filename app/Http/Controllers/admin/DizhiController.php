@@ -52,7 +52,7 @@ class DizhiController extends Controller
     {
          $this->validate($request, [
 
-            'uname' => 'required|unique:dizhis|regex:/^[a-zA-Z]{1}[\w]{1,15}$/',
+            'uname' => 'required|unique:dizhis|regex:/^[a-zA-Z]{1}[\w]{7,15}$/',
             'phone' => 'required|regex:/^1{1}[345678]{1}[\d]{9}$/',
 
         ],[
@@ -68,7 +68,6 @@ class DizhiController extends Controller
         $dizhis -> phone = $request->phone;
         $dizhis -> dizhi = $request->sheng.'-'.$request->shi.'-'.$request->xian;
         $dizhis -> xd = $request->xd;
-
 
         if($dizhis -> save()) {
             return redirect('/admin/dizhi')->with('success','添加成功');

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class order extends Model
 {
     //
+    public $table = 'orders';
     protected $dates = ['deleted_at'];
     //n 个 订单 对应 1 个物流
     public function wuliu()
@@ -29,10 +30,6 @@ class order extends Model
         return $this->belongsToMany('App\Model\Shops');
     }
 
-    public function order_shop()
-    {
-        return $this->hasMany('App\Model\Order_shop');
-    }
     public function zhuangtai()
     {
         return $this->belongsTo('App\Model\zhuangtai');

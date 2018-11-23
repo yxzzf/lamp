@@ -14,6 +14,10 @@ use App\Model\Setting;
 use App\Model\Guanggao;
 use App\Model\Shops;
 use App\Model\Lunbotus;
+use App\Model\Collect;
+use App\Model\Users;
+use Encore\Admin\Facades\Admin;
+
 
 
 class HomeController extends Controller
@@ -27,7 +31,7 @@ class HomeController extends Controller
     {
         // 前台首页
         $cates = Cates::all();//分类
-        
+      
         $guanggao = Guanggao::all();
         $lunbotus = Lunbotus::all();
         $links = Links::all();
@@ -119,15 +123,46 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
 
 
     public function modify()
     {
         // 网站维护页面
         return view('home.modify.modify');
+    }
+
+    // 商品收藏
+    public function coll($id)
+    {
+       $shops = Shops::find($id);
+       $uid = session('id');
+       $coll = new Collect;
+       $coll['uid'] = $uid;
+       $coll['gid'] = $id;
+       $coll['image'] = $shops->simage;
+       $coll['content'] = $shops->sname;
+       $coll['money'] = $shops->money;
+
+       if($coll->save()){
+            return redirect('/home/collects')->with('success','成功');
+       }else{
+            return back()->with('error','失败');
+       }
+
+
+    }
+
+    // 删除收藏
+    public function colldel()
+    {
+        $sc_id = $_GET['sc_id'];
+        $coll = Collect::findOrFail($sc_id);
+
+        if($coll->delete()){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
+
     }
 }

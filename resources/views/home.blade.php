@@ -45,9 +45,11 @@
 																<div class="sort-side">
 																	<dl class="dl-sort">
 																		<dt><span title="蛋糕">{{ $v->cname }}</span></dt>
+
 																		@foreach($tags as $vv) @if($vv->cates_id == $v->id)
 																		<dd>
 																			<a title="{{$vv->sname}}" href="#">{{$vv ->tname}}<span></span></a>
+
 																		</dd>
 																		@endif
 																		@endforeach
@@ -116,21 +118,17 @@
 							    
 						<div class="mod-vip">
 							<div class="m-baseinfo">
-								<a href="javascript:void(0);">
-									@if (session('Users'))
-									<img src="{{ session('Users')->pic }}">
-									@else
+								<a href="../person/index.html">
 									<img src="/home/images/getAvatar.do.jpg">
-									@endif
 								</a>
 								<em>
-									Hi,<span class="s-name">{{ session('uname') }}</span>
-									<a href="javascript:void(0);"><p>点击更多优惠活动</p></a>									
+									Hi,<span class="s-name">小叮当</span>
+									<a href="#"><p>点击更多优惠活动</p></a>									
 								</em>
 							</div>
 							<div class="member-logout">
-								<a class="am-btn-warning btn" href="/home/denglu">登录</a>
-								<a class="am-btn-warning btn" href="/home/zhuce">注册</a>
+								<a class="am-btn-warning btn" href="login.html">登录</a>
+								<a class="am-btn-warning btn" href="register.html">注册</a>
 							</div>
 							<div class="clear"></div>	
 						</div>																	    
@@ -180,9 +178,14 @@
 								<h3><?php echo Mb_substr($v['sname'],0,10,'utf-8');?></h3>
 								<h4><?php echo Mb_substr($v['miaoshu'],0,10,'utf-8');?></h4>
 
+
+
+
+
+
 							</div>
 							<div class="recommendationMain one">
-								<a href="#"><img src="{{ $v->tpic }}"></img></a>
+								<a href="introduction.html"><img src="{{ $v->tpic }}"></img></a>
 							</div>
 						</div>
 						@endif
@@ -243,16 +246,20 @@
 									<div class="title ">
 										<?php echo Mb_substr($vv2['sname'],0,10,'utf-8');?>
 									</div>
+
 									<div class="sub-title ">
 										¥{{$vv2 -> money}}
 									</div>
-									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-								</div>
-							</a>
-						</div>
-						@endif
-						@endforeach
-					</div>
+									<div class="menu-hd">
+		
+										</div>
+													<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+												</div>
+											</a>
+										</div>
+										@endif
+										@endforeach
+									</div>
 					<div class="clear "></div>
 					</div>
 					@endforeach

@@ -222,8 +222,8 @@
 											<a href="javascript:;" title="关闭" class="close">×</a>
 										</div>
 										<div class="theme-popbod dform">
-								<form class="theme-signin" name="loginform" action="/home/shopcar/{{ $shops['id'] }}" method="post">
-
+<form class="theme-signin" name="loginform" action="/home/shopcar/index/{{ $shops['id'] }}" method="post">
+								
 												<div class="theme-signin-left">
 
 													<div class="theme-options">
@@ -303,12 +303,12 @@
 							<li>
 								<div class="clearfix tb-btn tb-btn-basket theme-login">
 									{{ csrf_field() }}
-									<input type="submit" value="加入购物车" class="">
+									<button>加入购物车</button>
+									<a href="/home/colladd/{{$shops['id']}}">加入收藏</a>
 								</div>
 							</li>
 						</div>
-						</form>
-
+</form>			
 					</div>
 
 					<div class="clear"></div>

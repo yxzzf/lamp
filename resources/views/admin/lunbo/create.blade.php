@@ -22,6 +22,13 @@
      					<input type="file" class="small" name="pic">
      				</div>
      			</div>
+                   <div class="mws-form-row">
+                         <label class="mws-form-label">状态</label>
+                         <div class="mws-form-item">
+                              <input type="radio" value="1" name="status">启用&nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp
+                              <input type="radio" value="0" name="status">禁用
+                         </div>
+                    </div>
      			<div class="mws-form-row">
      				<input type="submit" value="提交" id="img_upload" class="btn btn-danger">
      				<input type="reset" value="取消" class="btn">

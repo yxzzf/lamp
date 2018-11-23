@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
- 
+
 	<head lang="en">
 		<meta charset="UTF-8">
-        <script src="/home/layui/layui.all.js"></script>
 		<link rel="stylesheet" href="/home/layui/css/layui.css" media="all">
         <script src="/home/layui/layui.all.js"></script>
 		<title>登录</title>
@@ -16,6 +15,26 @@
 		<link rel="stylesheet" href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" />
 		<link href="/home/css/dlstyle.css" rel="stylesheet" type="text/css">
 	</head>
+
+	<body>
+		<!-- 显示验证错误信息 开始 -->
+    @if (count($errors) > 0)
+    <div class="">
+        <ul> 
+        @foreach ($errors->all() as $k=>$v)
+            <script type="text/javascript">
+            var layer = layui.layer
+                ,form = layui.form;
+                if('{{ $k }}' == 0){
+                    layer.alert('{{ $v }}')
+                }                   
+            </script>;
+        @endforeach
+       </ul>
+    </div>
+    @endif
+    <!-- 显示验证错误信息 结束 -->
+
 		<div class="login-boxtitle">
 			<a href="/home/home.html"><img alt="logo" src="/home/images/logobig.png" /></a>
 		</div>
@@ -30,8 +49,8 @@
 							<div class="clear"></div>
 						
 						<div class="login-form">
-		  <form action="/home/dlg" method="post">
-		  	{{ csrf_field() }}
+						  <form action="/home/dlg" method="post">
+						  	{{ csrf_field() }}
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
 								    <input type="text" name="uname" id="uname" placeholder="用户名">
@@ -90,8 +109,7 @@
 						</div>
 					</div>
 					</script>
-        </script>
-     <!-- 读取提示信息开始 -->
+         <!-- 读取提示信息开始 -->
     @if (session('success'))
         <script type="text/javascript">
             var layer = layui.layer
@@ -109,25 +127,6 @@
         </script>;
     @endif
     <!-- 读取提示信息结束 -->
-
-
-    <!-- 显示验证错误信息 开始 -->
-    @if (count($errors) > 0)
-    <div class="">
-        <ul> 
-        @foreach ($errors->all() as $k=>$v)
-            <script type="text/javascript">
-            var layer = layui.layer
-                ,form = layui.form;
-                if('{{ $k }}' == 0){
-                    layer.alert('{{ $v }}')
-                }                   
-            </script>;
-        @endforeach
-       </ul>
-    </div>
-    @endif
-    <!-- 显示验证错误信息 结束 -->
 
 
     

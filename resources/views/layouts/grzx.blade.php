@@ -62,13 +62,13 @@
 						</ul>
 						<ul class="message-r">
 							<div class="topMessage home">
-								<div class="menu-hd"><a href="/" target="_top" class="h">商城首页</a></div>
+								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
 								<div class="menu-hd MyShangcheng"><a href="/home/grzx" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
 							<div class="topMessage mini-cart">
-								<div class="menu-hd"><a id="mc-menu-hd" href="/home/shopcar/index/{{ session('id') }}" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 							</div>
 							<div class="topMessage favorite">
 								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
@@ -146,8 +146,8 @@
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
+							<li><a href="/home/orders/index/{id}">订单管理</a></li>
+							<li><a href="/home/orders/tkuan/{id}">退款售后</a></li>
 						</ul>
 					</li>
 					<li class="person">
@@ -162,8 +162,8 @@
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
+							<li> <a href="/home/collects">收藏</a></li>
+							<li> <a href="/home/foot">足迹</a></li>
 							<li> <a href="comment.html">评价</a></li>
 							<li> <a href="news.html">消息</a></li>
 						</ul>

@@ -1,16 +1,5 @@
 @extends('layouts.index')
 @section('content')
-<head>
-<!-- 地址 start -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script> 
-<script src="/dizhi/js/distpicker.data.js"></script>
-<script src="/dizhi/js/distpicker.js"></script>
-<script src="/dizhi/js/main.js"></script> 
-<!-- 地址 end -->
-</head>
-    <body>
 	<div class="mws-panel grid_8">
                 	<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $title or ''}}</font></font></span>
 
@@ -64,6 +53,6 @@
                     </div>    	
                 </div>
 
-</body>
+
 
 @endsection

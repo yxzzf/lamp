@@ -18,8 +18,7 @@ use App\Model\Dizhis;
 class GrzxController extends Controller
 {
    public function index()
-   {
-   	
+   {	
    		$user = Users::where('id',session('id'))->first();
 	  	return view('home.grzx.index',['title'=>'个人中心','user'=>$user]);
    }
@@ -31,14 +30,7 @@ class GrzxController extends Controller
    }
 
    public function xxxg(Request $request, $id)
-   {		$this->validate($request, [
-        'phone' => 'regex:/^1{1}[345678]{1}[\d]{9}$/',
-      ],[
-          //格式错误提示
-        'phone.regex' => '手机号格式不正确',
-
-      ]);
-        $users = Users::find($id);
+   {		
    			if($request -> hasFile('pic')){
             $profile = $request -> file('pic');
 
@@ -50,14 +42,18 @@ class GrzxController extends Controller
            
             $res = $profile -> move($dir_name,$file_name);
             $profile_path = ltrim($dir_name.'/'.$file_name,'.');
-            $users -> pic = $profile_path;
+
             }
+
+
+	        $users = Users::find($id);
 	        $users -> uname = $request->input('uname');
 	        $users -> phone = $request->input('phone');
 	        $users -> email = $request->input('email');
 	        $users -> sex = $request->input('sex');
+	        $users -> pic = $profile_path;
 	       if($users ->save()){
-                   return back()->with('success','修改成功');
+                    echo  "<script>alert('修改成功');location.href='/home/grzx'</script>";
                 }else{
                     return back()->with('error','修改失败');
                 }
@@ -77,26 +73,26 @@ class GrzxController extends Controller
   	  {
 
   	  	$user = Users::find($id);
-  	    $oldpwd = $request->input('oldpwd');
-  	    if (!Hash::check($oldpwd, $user['pwd'])){
+	    $oldpwd = $request->input('oldpwd');
+	    if (!Hash::check($oldpwd, $user['pwd'])){
     		return back()->with('error','原密码错误,请重新输入');
 	
-    		}
+		}
 
-    		$pwd = Hash::make($request->input('pwd'));
-    		$pwdok = Hash::make($request->input('pwdok'));
-    		if (Hash::check($oldpwd, $pwd)){
-        		return back()->with('error','修改密码不能与原密码相同');
-    		}
-    		$user->pwd = $pwd;
-    		$res = $user->save();
-    		if($res){
-    			return back()->with('success','修改密码成功');
-    		}else{
-    			return back()->with('error','修改密码失败');
-    		}
+		$pwd = Hash::make($request->input('pwd'));
+		$pwdok = Hash::make($request->input('pwdok'));
+		if (Hash::check($oldpwd, $pwd)){
+    		return back()->with('error','修改密码不能与原密码相同');
+		}
+		$user->pwd = $pwd;
+		$res = $user->save();
+		if($res){
+			return back()->with('success','修改密码成功');
+		}else{
+			return back()->with('error','修改密码失败');
+		}
 
-     } 
+  	  } 
 
   	  public function dzym(Request $request, $id)
   	  {
@@ -110,7 +106,7 @@ class GrzxController extends Controller
   	  {
   	  	 $this->validate($request, [
 
-           'uname' => 'required|unique:users|regex:/^[\x{4e00}-\x{9fa5}A-Za-z0-9-_]+$/u',
+            'uname' => 'required|unique:dizhis|regex:/^[a-zA-Z]{1}[\w]{1,15}$/',
             'phone' => 'required|regex:/^1{1}[345678]{1}[\d]{9}$/',
 
         ],[
@@ -120,7 +116,7 @@ class GrzxController extends Controller
             'phone.required' => '电话号必填',
             'phone.regex' => '电话格式不正确',
 
-        ]);   
+        ]);
         $dizhis = new Dizhis;
         $dizhis -> uid = session('id');
         $dizhis -> uname = $request->uname;

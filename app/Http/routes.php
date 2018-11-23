@@ -17,32 +17,18 @@ use App\Model\Wzkgs;
 Route::get('/', function () {
     return view('welcome');
 });
+//用户列表
+
+Route::resource('/admin/user','admin\UserController');
+
+//地址列表
+Route::resource('/admin/dizhi','admin\DizhiController');
 
 //后台用户登录
 Route::get('admin/login','admin\LoginController@login');
 
 //后台登录验证
 Route::post('/admin/dologin','admin\LoginController@dologin');
-
-//Route::group(['middleware'=>'login'],function(){
-	//用户列表
-	Route::resource('/admin/user','admin\UserController');
-
-	//后台更改密码
-	Route::get('/admin/htmm','admin\AdminController@htmm');
-	Route::post('/admin/zmxg/{id}','admin\AdminController@zmxg');
-
-	//地址列表
-	Route::resource('/admin/dizhi','admin\DizhiController');
-	//商品包装
-	Route::resource('/admin/baozhuang','admin\BaozhuangController');
-
-	//商品口味
-	Route::resource('/admin/kow','admin\KowController');
-
-// });
-
-
 
 //个人中心
 Route::get('/home/grzx','home\GrzxController@index');
@@ -74,7 +60,11 @@ Route::post('/home/dlg','home\LogController@dlg');
 
 //退出登录
 Route::get('/home/loginout','home\LogController@loginout');
+//商品包装
+Route::resource('/admin/baozhuang','admin\BaozhuangController');
 
+//商品口味
+Route::resource('/admin/kow','admin\KowController');
 
 
 
@@ -119,11 +109,30 @@ Route::resource('/admin/lunbo','admin\LunboController');
 // 推荐位
 Route::resource('/admin/tuijian','admin\TuijianController');
 // 订单
-Route::resource('/admin/order','admin\OrderController');
+Route::resource('/admin/order','admin\OrdersController');
 // 支付
 Route::resource('/admin/zhifu','admin\ZhifuController');
-// 头条  
-Route::resource('/admin/toutiao','admin\ToutiaoController');
+// 足迹  
+Route::resource('/admin/zuji','admin\ZujiController');
+//收藏
+Route::resource('/home/collects','home\CollectController');
+//
+// 发送ajax足迹保存
+Route::post('/cunzuji','home\ZujiController@cunzuji');
+// 前台足迹
+Route::get('/home/foot','home\ZujiController@foot');
+// 删除足迹
+Route::get('/shanzuji','home\ZujiController@shanzuji');
+// 商品收藏
+Route::get('/home/colladd/{id}','home\HomeController@coll');
+// 收藏列表
+Route::get('/home/collectlist','home\HomeController@getScsc');
+// 收藏删除
+Route::get('/home/colldel','home\HomeController@colldel');
+//结算
+Route::post('/home/jiesuan','home\JiesuanController@jiesuan');
+// 生成订单
+Route::get('/home/scdd','home\OrdersController@index');
 
 
 
@@ -187,9 +196,9 @@ if($wzkgs['kg'] == 1){
 Route::get('/{id}.html','admin\ShopsController@show');
 
 //购物车管理
-Route::get('/home/shopcar/index/{id}','home\ShopCarController@index');
+Route::any('/home/shopcar/index/{id}','home\ShopCarController@index');
 Route::post('/home/shopcar/{id}','home\ShopCarController@edit');
-Route::post('/home/shopcar/destroy/{id}','home\ShopcarController@destroy');
+Route::any('/home/shopcar/destroy/{id}','home\ShopcarController@destroy');
 
 //前台分类下商品
 Route::get('/cates/{id}','home\HomeController@cates');

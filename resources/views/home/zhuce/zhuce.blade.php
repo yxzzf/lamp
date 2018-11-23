@@ -2,11 +2,8 @@
 <html>
 	
 	<head lang="en">
-		<meta charset="UTF-8"> 
+		<meta charset="UTF-8">
 		<title>注册</title>
-		 <script src="/home/layui/layui.all.js"></script>
-		<link rel="stylesheet" href="/home/layui/css/layui.css" media="all">
-        <script src="/home/layui/layui.all.js"></script>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="format-detection" content="telephone=no">
@@ -27,7 +24,19 @@
 
 
 	</head>
+
 	<body>
+		<!-- 显示验证错误信息开始 -->
+    @if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <!--显示验证错误信息结束  -->
 		<div class="login-boxtitle">
 			<a href="/home/demo.html"><img alt="" src="/home/images/logobig.png" /></a>
 		</div>
@@ -46,7 +55,7 @@
 									<form action="/home/store" method="post">
 							
             							  {{ csrf_field() }}
-                  				<div class="user-uname">
+                 				<div class="user-uname">
 								    <label for="uname"><i class="am-icon-mobile-phone am-icon-md"></i></label>
 								    <input type="text" name="uname" id="uname" placeholder="请输入用户名">
                  				</div>																	
@@ -91,46 +100,6 @@
 							</p>
 						</div>
 					</div>
-		    </script>
-     <!-- 读取提示信息开始 -->
-    @if (session('success'))
-        <script type="text/javascript">
-            var layer = layui.layer
-                 ,form = layui.form;
-
-
-            layer.alert("{{ session('success') }}");           
-        </script>;
-    @endif
-    @if (session('error'))
-      <script type="text/javascript">
-      var layer = layui.layer
-         ,form = layui.form;
-            layer.alert("{{ session('error') }}");         
-        </script>;
-    @endif
-    <!-- 读取提示信息结束 -->
-
-
-    <!-- 显示验证错误信息 开始 -->
-    @if (count($errors) > 0)
-    <div class="">
-        <ul> 
-        @foreach ($errors->all() as $k=>$v)
-            <script type="text/javascript">
-            var layer = layui.layer
-                ,form = layui.form;
-                if('{{ $k }}' == 0){
-                    layer.alert('{{ $v }}')
-                }                   
-            </script>;
-        @endforeach
-       </ul>
-    </div>
-    @endif
-    <!-- 显示验证错误信息 结束 -->
-
-
 	</body>
 
 </html>

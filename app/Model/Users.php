@@ -23,14 +23,13 @@ class Users extends Model
 
         return $this->belongsToMany('App\Model\order');
     }
-    public function Order_shop()
-    {
-
-        return $this->belongsToMany('App\Model\Order_shop');
-    }
     public function Dizhis()
     {
         return $this->hasMany('App\Model\Dizhis','id','uid');
+    }
+    public function collect()
+    {
+        return $this->hasMany('App\Model\Collect');
     }
     
 }

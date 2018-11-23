@@ -169,7 +169,7 @@
                 </ul>
             </div>
             <div class="cartBox">
-                <form action="/home/dingdan/{{session('homeUser')['id']}}" method="get" class="qwe">
+                <form action="/home/jiesuan" method="get" class="qwe">
                     <div class="order_content">
                         <?php $i= 0; ?> 
                         @foreach($shop_id as $k => $v)
@@ -203,27 +203,30 @@
                                 <p class="sum_price">￥{{$shops[$v-1]->money * $shopcars[$k]->shuliang}}</p>
                             </li>
                             {{csrf_field()}}
-                        </form>
-                            <li class="list_op">
-                                <form action="/home/shopcar/destroy/{{$shopcars[$k]->id}}" method="post">
+                       
+                              <form action="/home/shopcar/destroy/{{$shopcars[$k]->id}}" method="post">
                                     
                                         {{csrf_field()}}
                                         <button style="background-color:red;width:50px;height:30px;">删除</button>
                                     
                                 </form>
-                            </li>
                         </ul>
+
                         @endforeach
                     </div>
-                    
+                 </form>    
             </div>
             <!--底部-->
             <div class="bar-wrapper">
+                <form action="/home/jiesuan" method="post">
                 <div class="bar-right">
                     <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
                     <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-                    <div class="calBtn"><a href="javascript:;" class="asd">结算</a></div>
+                    {{csrf_field()}}
+                            <input type="submit" value="结算" />
+                    
                 </div>
+                </form>
             </div>
         </section>
         <section class="model_bg"></section>
