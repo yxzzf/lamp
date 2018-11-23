@@ -24,7 +24,7 @@ Route::get('admin/login','admin\LoginController@login');
 //后台登录验证
 Route::post('/admin/dologin','admin\LoginController@dologin');
 
-// Route::group(['middleware'=>'login'],function(){
+//Route::group(['middleware'=>'login'],function(){
 	//用户列表
 	Route::resource('/admin/user','admin\UserController');
 
