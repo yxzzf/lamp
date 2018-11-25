@@ -110,8 +110,6 @@ Route::get('/home/loginout','home\LogController@loginout');
 
 
 
-
-
 // 轮播图
 Route::resource('/admin/lunbo','admin\LunboController');
 // 推荐位
