@@ -17,54 +17,47 @@ use App\Model\Wzkgs;
 Route::get('/', function () {
     return view('welcome');
 });
-//用户列表
-
-Route::resource('/admin/user','admin\UserController');
-
-//地址列表
-Route::resource('/admin/dizhi','admin\DizhiController');
-
 //后台用户登录
 Route::get('admin/login','admin\LoginController@login');
-
 //后台登录验证
 Route::post('/admin/dologin','admin\LoginController@dologin');
-
+//Route::group(['middleware'=>'login'],function(){
+	//用户列表
+	Route::resource('/admin/user','admin\UserController');
+	//后台更改密码
+	Route::get('/admin/htmm','admin\AdminController@htmm');
+	Route::post('/admin/zmxg/{id}','admin\AdminController@zmxg');
+	//地址列表
+	Route::resource('/admin/dizhi','admin\DizhiController');
+	//商品包装
+	Route::resource('/admin/baozhuang','admin\BaozhuangController');
+	//商品口味
+	Route::resource('/admin/kow','admin\KowController');
+// });
 //个人中心
 Route::get('/home/grzx','home\GrzxController@index');
-
 //个人信息
 Route::get('/home/grxx/{id}','home\GrzxController@grxx');
 Route::post('/home/xxxg/{id}','home\GrzxController@xxxg');
-
 //修改密码
 Route::get('/home/mmxx/{id}','home\GrzxController@mmxx');
 Route::post('/home/zxxg/{id}','home\GrzxController@zxxg');
-
 //地址管理
 Route::get('/home/dzym/{id}','home\GrzxController@dzym');
 Route::post('/home/dztj','home\GrzxController@dztj');
 Route::get('/home/dzsc/{id}','home\GrzxController@dzsc');
-
 //前台注册
 Route::get('/home/zhuce','home\LogController@zhuce');
-
 //注册操作
 Route::post('/home/store','home\LogController@store');
-
 //前台登录
 Route::get('/home/denglu','home\LogController@denglu');
-
 //登录操作
 Route::post('/home/dlg','home\LogController@dlg');
-
 //退出登录
 Route::get('/home/loginout','home\LogController@loginout');
-//商品包装
-Route::resource('/admin/baozhuang','admin\BaozhuangController');
 
-//商品口味
-Route::resource('/admin/kow','admin\KowController');
+
 
 
 
